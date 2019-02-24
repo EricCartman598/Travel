@@ -39,7 +39,7 @@ public class User {
         this.id = id;
     }
 
-    public User(String serial, String number, Passport passport) {
+    public User(String firstName, String lastName, Passport passport) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.passport = passport;
