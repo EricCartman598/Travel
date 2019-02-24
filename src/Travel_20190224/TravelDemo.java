@@ -8,49 +8,33 @@ public class TravelDemo {
     private Long cityId;
 
     public City searchCity(String name, Long id) {
-        if (id != null) {
-            cityId = id;
-            getCity(new CrudInterface() {
-                @Override
-                public void add() {
 
-                }
+        cityId = id;
+        cityName = name;
+        return getCity(new CrudInterface() {
+            @Override
+            public void add() {
 
-                @Override
-                public Object find() {
+            }
+
+            @Override
+            public Object find() {
+                if (cityId != null)
                     return new CityMemoryService().findCityById(cityId);
-                }
-
-                @Override
-                public void delete() {
-
-                }
-            });
-        } else if (name.trim().isEmpty()) {
-            cityName = name;
-            return getCity(new CrudInterface() {
-                @Override
-                public void add() {
-
-                }
-
-                @Override
-                public Object find() {
+                else if (!cityName.trim().isEmpty())
                     return new CityMemoryService().findCityByName(cityName);
-                }
+                return null;
+            }
 
-                @Override
-                public void delete() {
+            @Override
+            public void delete() {
 
-                }
-            });
-        }
-
-        return null;
+            }
+        });
     }
 
 
-    public City getCity(CrudInterface crudInterface) {
+    private City getCity(CrudInterface crudInterface) {
         return (City) crudInterface.find();
     }
 
