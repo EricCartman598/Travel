@@ -5,8 +5,11 @@
  */
 package Travel_20190228.City.Repos;
 
+import Travel_20190228.City.Search.CitySearchCondition;
 import Travel_20190228.Common.Business.Repos.BaseRepos;
 import Travel_20190228.City.Domain.City;
+
+import java.util.List;
 
 
 /**
@@ -20,4 +23,6 @@ public interface CityRepos extends BaseRepos {
     City findCityById(long id);
 
     City findCityByName(String name);
+
+    List<City> findCityByCondition(CitySearchCondition citySearchCondition);
 }

@@ -11,7 +11,10 @@ import Travel_20190228.City.Repos.Impl.CityMemoryListRepos;
 import Travel_20190228.Country.Domain.Country;
 import Travel_20190228.Country.Repos.CountryRepos;
 import Travel_20190228.Country.Repos.Impl.CountryMemoryListRepos;
+import Travel_20190228.Country.Search.CountrySearchCondition;
 import Travel_20190228.Country.Service.CountryService;
+
+import java.util.List;
 
 
 /**
@@ -45,6 +48,11 @@ public class CountryMemoryListService implements CountryService {
         }
 
         return null;
+    }
+
+    @Override
+    public List<Country> findCountryByCondition(CountrySearchCondition countrySearchCondition) {
+        return countryRepos.findCountryByCondition(countrySearchCondition);
     }
 
     @Override

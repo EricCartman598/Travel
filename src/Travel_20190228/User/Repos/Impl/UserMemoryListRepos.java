@@ -9,6 +9,9 @@ package Travel_20190228.User.Repos.Impl;
 
 import Travel_20190228.User.Domain.User;
 import Travel_20190228.User.Repos.UserRepos;
+import Travel_20190228.User.Search.UserSearchCondition;
+
+import java.util.List;
 
 import static Travel_20190228.Storage.Storage.users;
 
@@ -39,6 +42,11 @@ public class UserMemoryListRepos implements UserRepos {
         }
                 
         return null;        
+    }
+
+    @Override
+    public List<User> findUserByCondition(UserSearchCondition userSearchCondition) {
+        return null;
     }
 
     @Override

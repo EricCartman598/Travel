@@ -8,7 +8,10 @@ package Travel_20190228.City.Service.Impl;
 import Travel_20190228.City.Domain.City;
 import Travel_20190228.City.Repos.CityRepos;
 import Travel_20190228.City.Repos.Impl.CityMemoryListRepos;
+import Travel_20190228.City.Search.CitySearchCondition;
 import Travel_20190228.City.Service.CityService;
+
+import java.util.List;
 
 
 /**
@@ -38,6 +41,11 @@ public class CityMemoryListService implements CityService {
             return cityRepos.findCityByName(name);
 
         return null;
+    }
+
+    @Override
+    public List<City> findCityByCondition(CitySearchCondition citySearchCondition) {
+        return cityRepos.findCityByCondition(citySearchCondition);
     }
 
     @Override

@@ -11,7 +11,10 @@ import Travel_20190228.Order.Service.OrderService;
 import Travel_20190228.User.Domain.User;
 import Travel_20190228.User.Repos.Impl.UserMemoryListRepos;
 import Travel_20190228.User.Repos.UserRepos;
+import Travel_20190228.User.Search.UserSearchCondition;
 import Travel_20190228.User.Service.UserService;
+
+import java.util.List;
 
 /**
  *
@@ -37,6 +40,11 @@ public class UserMemoryListService implements UserService {
             return userRepos.findUserById(id);
 
         return null;
+    }
+
+    @Override
+    public List<User> findUserByCondition(UserSearchCondition userSearchCondition) {
+        return userRepos.findUserByCondition(userSearchCondition);
     }
 
 

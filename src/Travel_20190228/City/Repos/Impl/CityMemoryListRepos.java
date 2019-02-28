@@ -2,6 +2,9 @@ package Travel_20190228.City.Repos.Impl;
 
 import Travel_20190228.City.Domain.City;
 import Travel_20190228.City.Repos.CityRepos;
+import Travel_20190228.City.Search.CitySearchCondition;
+
+import java.util.List;
 
 import static Travel_20190228.Storage.Storage.cities;
 import static Travel_20190228.Storage.Storage.countries;
@@ -35,6 +38,11 @@ public class CityMemoryListRepos implements CityRepos {
     }
 
     @Override
+    public List<City> findCityByCondition(CitySearchCondition citySearchCondition) {
+        return null;
+    }
+
+    @Override
     public void deleteById(long id) {
         countries.remove(findCityById(id));
     }
@@ -49,4 +57,6 @@ public class CityMemoryListRepos implements CityRepos {
     public long generateSequence() {
         return ++sequence;
     }
+
+
 }

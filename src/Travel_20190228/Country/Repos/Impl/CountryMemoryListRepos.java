@@ -7,6 +7,9 @@ package Travel_20190228.Country.Repos.Impl;
 
 import Travel_20190228.Country.Domain.Country;
 import Travel_20190228.Country.Repos.CountryRepos;
+import Travel_20190228.Country.Search.CountrySearchCondition;
+
+import java.util.List;
 
 import static Travel_20190228.Storage.Storage.countries;
 
@@ -33,6 +36,11 @@ public class CountryMemoryListRepos implements CountryRepos {
         }
                 
         return null;        
+    }
+
+    @Override
+    public List<Country> findCountryByCondition(CountrySearchCondition countrySearchCondition) {
+        return null;
     }
 
     @Override

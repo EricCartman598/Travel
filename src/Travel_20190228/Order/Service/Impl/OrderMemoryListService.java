@@ -13,7 +13,10 @@ import Travel_20190228.Country.Service.Impl.CountryMemoryListService;
 import Travel_20190228.Order.Domain.Order;
 import Travel_20190228.Order.Repos.Impl.OrderMemoryListRepos;
 import Travel_20190228.Order.Repos.OrderRepos;
+import Travel_20190228.Order.Search.OrderSearchCondition;
 import Travel_20190228.Order.Service.OrderService;
+
+import java.util.List;
 
 /**
  *
@@ -41,6 +44,11 @@ public class OrderMemoryListService implements OrderService {
     }
 
     @Override
+    public List<Order> findOrderByCondition(OrderSearchCondition orderSearchCondition) {
+        return orderRepos.findOrderByCondition(orderSearchCondition);
+    }
+
+    @Override
     public void deleteById(Long id) {
         if(id != null)
             orderRepos.deleteById(id);
@@ -50,4 +58,6 @@ public class OrderMemoryListService implements OrderService {
     public void printAll() {
         orderRepos.printAll();
     }
+
+
 }
