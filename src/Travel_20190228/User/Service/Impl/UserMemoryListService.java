@@ -57,4 +57,9 @@ public class UserMemoryListService implements UserService {
     public void printAll() {
         userRepos.printAll();
     }
+
+    @Override
+    public void update() {
+        userRepos.update();
+    }
 }

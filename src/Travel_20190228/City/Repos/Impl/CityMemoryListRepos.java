@@ -54,6 +54,11 @@ public class CityMemoryListRepos implements CityRepos {
     }
 
     @Override
+    public void update() {
+        cities = cities;
+    }
+
+    @Override
     public long generateSequence() {
         return ++sequence;
     }

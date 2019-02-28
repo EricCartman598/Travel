@@ -5,4 +5,6 @@ public interface BaseService {
     void deleteById(Long id);
 
     void printAll();
+
+    void update();
 }

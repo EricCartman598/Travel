@@ -64,6 +64,11 @@ public class UserMemoryListRepos implements UserRepos {
     }
 
     @Override
+    public void update() {
+        users = users;
+    }
+
+    @Override
     public long generateSequence() {
         return ++sequence;
     }

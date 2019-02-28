@@ -62,6 +62,11 @@ public class OrderMemoryListRepos implements OrderRepos {
     }
 
     @Override
+    public void update() {
+        orders = orders;
+    }
+
+    @Override
     public long generateSequence() {
         return ++sequence;
     }

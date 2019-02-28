@@ -55,6 +55,11 @@ public class CountryMemoryListRepos implements CountryRepos {
     }
 
     @Override
+    public void update() {
+        countries = countries;
+    }
+
+    @Override
     public long generateSequence() {
         return ++sequence;
     }

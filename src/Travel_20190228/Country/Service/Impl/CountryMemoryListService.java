@@ -66,4 +66,9 @@ public class CountryMemoryListService implements CountryService {
     public void printAll() {
 
     }
+
+    @Override
+    public void update() {
+        countryRepos.update();
+    }
 }

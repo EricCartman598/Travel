@@ -59,6 +59,10 @@ public class CityMemoryListService implements CityService {
         cityRepos.printAll();
     }
 
+    @Override
+    public void update() {
+        cityRepos.update();
+    }
 
-    
+
 }

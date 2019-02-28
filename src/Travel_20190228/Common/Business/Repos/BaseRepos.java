@@ -7,4 +7,6 @@ public interface BaseRepos extends SequenceGenerator {
     void deleteById(long id);
 
     void printAll();
+
+    void update();
 }

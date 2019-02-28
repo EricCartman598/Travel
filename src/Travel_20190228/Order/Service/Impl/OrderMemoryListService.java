@@ -59,5 +59,10 @@ public class OrderMemoryListService implements OrderService {
         orderRepos.printAll();
     }
 
+    @Override
+    public void update() {
+        orderRepos.update();
+    }
+
 
 }
