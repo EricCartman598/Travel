@@ -3,18 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190228.Country.Service.Impl;
+package Travel_20190303.Country.Service.Impl;
 
-import Travel_20190228.City.Domain.City;
-import Travel_20190228.City.Repos.CityRepos;
-import Travel_20190228.City.Repos.Impl.CityMemoryListRepos;
-import Travel_20190228.Country.Domain.Country;
-import Travel_20190228.Country.Repos.CountryRepos;
-import Travel_20190228.Country.Repos.Impl.CountryMemoryListRepos;
-import Travel_20190228.Country.Search.CountrySearchCondition;
-import Travel_20190228.Country.Service.CountryService;
+
+import Travel_20190303.City.Domain.City;
+import Travel_20190303.City.Repos.CityRepos;
+import Travel_20190303.City.Repos.Impl.CityMemoryListRepos;
+import Travel_20190303.Country.Domain.Country;
+import Travel_20190303.Country.Repos.CountryRepos;
+import Travel_20190303.Country.Repos.Impl.CountryMemoryListRepos;
+import Travel_20190303.Country.Search.CountrySearchCondition;
+import Travel_20190303.Country.Service.CountryService;
+import Travel_20190303.Storage.Storage;
 
 import java.util.List;
+
+import static Travel_20190303.Storage.Storage.cities;
+import static Travel_20190303.Storage.Storage.countries;
 
 
 /**
@@ -32,10 +37,19 @@ public class CountryMemoryListService implements CountryService {
 
     @Override
     public void addCountry(Country country) {
+        if(country == null)
+            return;
+
+        if(countries.contains(country))
+            return;
+
         countryRepos.addCountry(country);
 
-        for (City city : country.getCities())
-            cityRepos.addCity(city);
+        for (City city : country.getCities()) {
+            if(!cities.contains(city))
+                cityRepos.addCity(city);
+        }
+
     }
 
     @Override
@@ -69,7 +83,7 @@ public class CountryMemoryListService implements CountryService {
 
     @Override
     public void printAll() {
-
+        countryRepos.printAll();
     }
 
     @Override
