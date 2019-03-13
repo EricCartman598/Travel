@@ -47,6 +47,11 @@ public abstract class User extends BaseDomain {
         this.passport = passport;
     }
 
+    public User(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public User(String firstName, String lastName, Passport passport, List<Order> orders) {
         super();
         this.firstName = firstName;
@@ -75,8 +80,9 @@ public abstract class User extends BaseDomain {
         return passport;
     }
 
-    public void setPassport(Passport passport) {
-        this.passport = passport;
+    public void setPassport(String passportSerial, String passportNumber) {
+        this.passport.serial = passportSerial;
+        this.passport.number = passportNumber;
     }
 
     public List<Order> getOrders() {

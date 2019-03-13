@@ -23,10 +23,17 @@ public class Country extends BaseDomain {
     private String language;
     private List<City> cities;
 
+    public Country(String name) {
+        this.name = name;
+        this.language = null;
+        this.cities = null;
+    }
+
     public Country(String name, String language) {
         super();
         this.name = name;
-        this.language = language;        
+        this.language = language;
+        this.cities = null;
     }
 
     public String getName() {
@@ -58,9 +65,9 @@ public class Country extends BaseDomain {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Country country = (Country) o;
-        return name.equals(country.name) &&
+        return name.equals(country.name);/* &&
                 language.equals(country.language) &&
-                cities.equals(country.cities);
+                cities.equals(country.cities);*/
     }
 
     @Override

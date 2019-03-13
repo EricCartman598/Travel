@@ -21,12 +21,16 @@ public class Order extends BaseDomain {
     private double price;
     private List<Country> countries;
 
+
+
     public Order(User user, double price, List<Country> countries) {
         super();
         this.user = user;
         this.price = price;
         this.countries = countries;
     }
+
+
 
     public User getUser() {
         return user;

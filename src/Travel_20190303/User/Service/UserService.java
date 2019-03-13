@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface UserService extends BaseService {
 
-    void addUser(User user, User.Passport passport);
+    void addUser(User user);
 
     User findUserById(Long id);
 

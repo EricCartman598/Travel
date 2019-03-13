@@ -29,8 +29,8 @@ public class UserMemoryListService implements UserService {
     }
 
     @Override
-    public void addUser(User user, User.Passport passport) {
-        userRepos.setUserPassport(user, passport);
+    public void addUser(User user) {
+        //userRepos.setUserPassport(user, passport);
         userRepos.addUser(user);
     }
 

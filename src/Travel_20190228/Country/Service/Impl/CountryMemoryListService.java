@@ -22,13 +22,8 @@ import java.util.List;
  */
 public class CountryMemoryListService implements CountryService {
 
-    private final CountryRepos countryRepos;
-    private final CityRepos cityRepos;
-
-    public CountryMemoryListService(CountryRepos countryRepos, CityRepos cityRepos) {
-        this.countryRepos = countryRepos;
-        this.cityRepos = cityRepos;
-    }
+    private CountryRepos countryRepos = new CountryMemoryListRepos();
+    private CityRepos cityRepos = new CityMemoryListRepos();
 
     @Override
     public void addCountry(Country country) {

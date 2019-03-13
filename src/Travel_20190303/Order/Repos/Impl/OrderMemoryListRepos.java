@@ -6,6 +6,7 @@
 package Travel_20190303.Order.Repos.Impl;
 
 import Travel_20190303.City.Domain.City;
+import Travel_20190303.Common.Business.Service.SortType;
 import Travel_20190303.Country.Domain.Country;
 import Travel_20190303.Order.Domain.Order;
 import Travel_20190303.Order.Repos.OrderRepos;
@@ -15,6 +16,8 @@ import Travel_20190303.User.Domain.User;
 import Travel_20190303.User.Domain.UserType;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import static Travel_20190303.Storage.Storage.*;
@@ -53,11 +56,14 @@ public class OrderMemoryListRepos implements OrderRepos {
     public void printAll() {
         for (Order order : orders) {
             System.out.println("User firstName: " + order.getUser().getFirstName() + "\r\n" +
-                    "User firstName: " + order.getUser().getLastName() + "\r\n");
+                    "User firstName: " + order.getUser().getLastName());
             for (Country country : order.getCountries()) {
-                System.out.println(country.getName());
+                System.out.println("Country: " + country.getName());
+                for(City city : country.getCities()) {
+                    System.out.println("City: " + city.getName());
+                }
             }
-            System.out.println(order.getPrice());
+            System.out.println("Price: " + order.getPrice());
         }
     }
 
@@ -81,18 +87,36 @@ public class OrderMemoryListRepos implements OrderRepos {
             if (!isMatchUserType)
                 continue;
 
-            for (int i = 0; i < countries.size(); i++) {
-                if (!order.getCountries().contains(countries.get(i)))
+            for (int i = 0; i < order.getCountries().size(); i++) {
+                if(!order.getCountries().contains(orderSearchCondition.getCountry()))//if (!order.getCountries().contains(countries.get(i)))
                     continue;
+                else
+                    foundOrders.add(order);
 
-                if (orderSearchCondition.getCountry().getCities().isEmpty())
+                // sorting
+                Collections.sort(foundOrders, new Comparator<Order>() {
+                    @Override
+                    public int compare(Order o1, Order o2) {
+                        if(o1 == null || o2 == null)
+                            return 0;
+
+                        return o1.getUser().getFirstName().compareTo(o2.getUser().getFirstName());
+                    }
+                });
+
+                if(orderSearchCondition.getSortType() == SortType.DESC)
+                    Collections.reverse(foundOrders);
+
+                // Don't search by city yet
+
+                /*if (orderSearchCondition.getCountry().getCities().isEmpty())
                     foundOrders.add(order);
                 else {
                     for (City city : cities) {
-                        if (order.getCountries().get(i).getCities().contains(city))
+                        if (order.getCountries().get(i).getCities().contains(orderSearchCondition.getCountry().))
                             foundOrders.add(order);
                     }
-                }
+                }*/
             }
         }
         return foundOrders;

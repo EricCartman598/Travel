@@ -28,10 +28,10 @@ public class UserMemoryListRepos implements UserRepos {
         users.add(user);        
     }
 
-    @Override
+    /*@Override
     public void setUserPassport(User user, User.Passport passport) {
         user.setPassport(passport);
-    }
+    }*/
 
     @Override
     public User findUserById(long id) {

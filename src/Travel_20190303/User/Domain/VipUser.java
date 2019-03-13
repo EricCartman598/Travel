@@ -12,6 +12,10 @@ public class VipUser extends User {
     private UserBonus bonus;
 
 
+    public VipUser(String firstName, String lastName) {
+        super(firstName, lastName);
+    }
+
     public VipUser(String firstName, String lastName, Passport passport, UserBonus bonus) {
         super(firstName, lastName, passport);
         this.bonus = bonus;

@@ -24,15 +24,15 @@ import java.util.List;
  */
 public class OrderMemoryListService implements OrderService {
 
-    private final OrderRepos orderRepos;
-
-    public OrderMemoryListService(OrderRepos orderRepos) {
-        this.orderRepos = orderRepos;
-    }
+    private OrderRepos orderRepos = new OrderMemoryListRepos();
+    private CountryService countryService = new CountryMemoryListService();
 
     @Override
     public void addOrder(Order order) {
         orderRepos.addOrder(order);
+
+        for(Country country : order.getCountries())
+            countryService.addCountry(country);
     }
 
     @Override

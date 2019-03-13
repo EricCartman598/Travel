@@ -22,16 +22,17 @@ import java.util.List;
  */
 public class UserMemoryListService implements UserService {
     
-    private UserRepos userRepos;
-
-    public UserMemoryListService(UserRepos userRepos) {
-        this.userRepos = userRepos;
-    }
+    private UserRepos userRepos = new UserMemoryListRepos();
+    private OrderService orderService = new OrderMemoryListService();
 
     @Override
     public void addUser(User user, User.Passport passport) {
         userRepos.setUserPassport(user, passport);
         userRepos.addUser(user);
+        
+        for(int i = 0; i < user.getOrders().size(); i++) {
+            orderService.addOrder(user.getOrders().get(i));
+        }         
     }
 
     public User findUserById(Long id) {

@@ -20,11 +20,7 @@ import java.util.List;
  */
 public class CityMemoryListService implements CityService {
 
-    private final CityRepos cityRepos;
-
-    public CityMemoryListService(CityRepos cityRepos) {
-        this.cityRepos = cityRepos;
-    }
+    private CityRepos cityRepos = new CityMemoryListRepos();
 
     @Override
     public void addCity(City city) {

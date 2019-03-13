@@ -1,13 +1,13 @@
 package Travel_20190303.Common.Business.Domain;
 
-public abstract class BaseDomain {
-    protected Long id;
+public abstract class BaseDomain <ID> {
+    protected ID id;
 
-    public Long getId() {
+    public ID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(ID id) {
         this.id = id;
     }
 
