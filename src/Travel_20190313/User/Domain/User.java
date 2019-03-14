@@ -3,25 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190307.User.Domain;
+package Travel_20190313.User.Domain;
 
 
-import Travel_20190307.Common.Business.Domain.BaseDomain;
-import Travel_20190307.Order.Domain.Order;
+import Travel_20190313.Common.Business.Domain.BaseDomain;
+import Travel_20190313.Order.Domain.Order;
+import Travel_20190313.User.Domain.UserType;
 
 import java.util.List;
 
 /**
  * @author Виталий
  */
-public abstract class User extends BaseDomain {
+public abstract class User extends BaseDomain<Long> {
     protected String firstName;
     protected String lastName;
     protected Passport passport;
     protected List<Order> orders;
     boolean allIncluded;
     UserType userType;
-    protected String phoneNumber;
+    String PhoneNumber;
 
     public class Passport {
         private String serial;
@@ -79,6 +80,10 @@ public abstract class User extends BaseDomain {
 
     public Passport getPassport() {
         return passport;
+    }
+
+    public String getPhoneNumber() {
+        return PhoneNumber;
     }
 
     public void setPassport(String passportSerial, String passportNumber) {
