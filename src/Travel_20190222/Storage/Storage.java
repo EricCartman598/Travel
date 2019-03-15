@@ -17,7 +17,7 @@ import java.util.List;
  * @author Виталий
  */
 public class Storage {
-    public static List<Country> countries;// = new List<Travel_20190222.Country>() {
+    public static List<Country> countries;// = new List<Travel_20190222.BaseCountry>() {
     public static List<City> cities;
     public static List<Order> orders;
     public static List<User> users;

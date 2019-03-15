@@ -58,7 +58,7 @@ public class OrderMemoryListRepos implements OrderRepos {
             System.out.println("User firstName: " + order.getUser().getFirstName() + "\r\n" +
                     "User firstName: " + order.getUser().getLastName());
             for (Country country : order.getCountries()) {
-                System.out.println("Country: " + country.getName());
+                System.out.println("BaseCountry: " + country.getName());
                 for(City city : country.getCities()) {
                     System.out.println("City: " + city.getName());
                 }

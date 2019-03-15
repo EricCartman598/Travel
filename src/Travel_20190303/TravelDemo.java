@@ -58,9 +58,9 @@ public class TravelDemo {
         countryService.printAll();
         orderService.printAll();
 
-        createNewOountry("USA", Arrays.asList("New-York", "Los-Angeles"));//Country country1 = new Country("USA");//createNewOountry
-        createNewOountry("Ukraine", Arrays.asList("Kiev", "Livov", "Odessa"));//Country country2 = new Country("Ukraine");
-        createNewOountry("Russia", Arrays.asList("Moscow", "Spb", "Novosibirsk"));//Country country3 = new Country("Russia");
+        createNewOountry("USA", Arrays.asList("New-York", "Los-Angeles"));//BaseCountry country1 = new BaseCountry("USA");//createNewOountry
+        createNewOountry("Ukraine", Arrays.asList("Kiev", "Livov", "Odessa"));//BaseCountry country2 = new BaseCountry("Ukraine");
+        createNewOountry("Russia", Arrays.asList("Moscow", "Spb", "Novosibirsk"));//BaseCountry country3 = new BaseCountry("Russia");
 
         OrderSearchCondition orderSearchCondition = new OrderSearchCondition("USA", SortType.DESC);
         List<Order> foundOrders = orderService.findOrderByCondition(orderSearchCondition);
@@ -113,7 +113,7 @@ public class TravelDemo {
         }
 
         List<Country> orderingCountry = new ArrayList<>();
-        orderingCountry.add(new Country(countryName));//Country orderingCountry = new Country(countryName);
+        orderingCountry.add(new Country(countryName));//BaseCountry orderingCountry = new BaseCountry(countryName);
         orderingCountry.get(0).setCities(orderingCities);
 
         Order order = new Order(user, price, orderingCountry);

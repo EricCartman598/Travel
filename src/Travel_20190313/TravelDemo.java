@@ -65,9 +65,9 @@ public class TravelDemo {
         countryService.printAll();
         orderService.printAll();
 
-        createNewCountry("USA", Arrays.asList("New-York", "Los-Angeles"));//Country country1 = new Country("USA");//createNewOountry
-        createNewCountry("Ukraine", Arrays.asList("Kiev", "Livov", "Odessa"));//Country country2 = new Country("Ukraine");
-        createNewCountry("Russia", Arrays.asList("Moscow", "Spb", "Novosibirsk"));//Country country3 = new Country("Russia");
+        createNewCountry("USA", Arrays.asList("New-York", "Los-Angeles"));//BaseCountry country1 = new BaseCountry("USA");//createNewOountry
+        createNewCountry("Ukraine", Arrays.asList("Kiev", "Livov", "Odessa"));//BaseCountry country2 = new BaseCountry("Ukraine");
+        createNewCountry("Russia", Arrays.asList("Moscow", "Spb", "Novosibirsk"));//BaseCountry country3 = new BaseCountry("Russia");
 
         OrderSearchCondition orderSearchCondition = new OrderSearchCondition("USA", SortType.DESC);
         List<Order> foundOrders = orderService.findByCondition(orderSearchCondition);
@@ -90,6 +90,7 @@ public class TravelDemo {
             cityService.add(new City(cityName));
         } catch (BasicTravelCheckedException e) {
             System.out.println(e.getMessage());
+            System.out.println(e.getErrorCode().name());
         }
     }
 
@@ -105,6 +106,7 @@ public class TravelDemo {
             countryService.add(country);
         } catch (BasicTravelCheckedException e) {
             System.out.println(e.getMessage());
+            System.out.println(e.getErrorCode().name());
         }
     }
 
@@ -144,6 +146,7 @@ public class TravelDemo {
             orderService.add(order);
         } catch (BasicTravelCheckedException e) {
             System.out.println(e.getMessage());
+            System.out.println(e.getErrorCode().name());
         }
     }
 

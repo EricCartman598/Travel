@@ -85,7 +85,7 @@ public class User {
     
     
    /*
-    boolean makeOrder(List<Travel_20190222.Country> countries) {
+    boolean makeOrder(List<Travel_20190222.BaseCountry> countries) {
         return true;
     }
 
