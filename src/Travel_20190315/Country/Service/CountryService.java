@@ -15,6 +15,6 @@ public interface CountryService extends BaseService<BaseCountry, Long> {
 
     City getCapital(BaseCountry country);
 
-    void deleteCityFromCountry(BaseCountry targetCountry, City targetCity);
+    //void deleteCityFromCountry(BaseCountry targetCountry, City targetCity);
 
 }

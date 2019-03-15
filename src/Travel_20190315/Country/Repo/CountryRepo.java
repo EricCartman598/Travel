@@ -13,5 +13,5 @@ public interface CountryRepo extends BaseRepo<BaseCountry, Long> {
 
     List<BaseCountry> findByCondition(CountrySearchCondition searchCondition);
 
-    void deleteCityFromCountry(BaseCountry targetCountry, City targetCity);
+    //void deleteCityFromCountry(BaseCountry targetCountry, City targetCity);
 }

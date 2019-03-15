@@ -76,7 +76,7 @@ public class OrderMemoryListRepo implements OrderRepo {
                 }*/
     }
 
-    @Override
+    /*@Override
     public void deleteCityFromOrder(Order targetOrder, BaseCountry targetCountry, City targetCity) {
         for (BaseCountry country : targetOrder.getCountries()) {
             if (country.equals(targetCountry)) {
@@ -84,7 +84,7 @@ public class OrderMemoryListRepo implements OrderRepo {
                 return;
             }
         }
-    }
+    }*/
 
     @Override
     public void add(Order data) {

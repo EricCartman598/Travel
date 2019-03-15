@@ -6,7 +6,7 @@ import Travel_20190315.Common.Business.Exceptions.NoSuchCountryException;
 
 public interface BaseService<T, ID> {
 
-    void add(T data) throws NoSuchCountryException, NoSuchCityException;
+    void add(T data);
 
     T findById(ID id);
 

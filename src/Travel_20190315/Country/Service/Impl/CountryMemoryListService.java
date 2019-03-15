@@ -34,11 +34,12 @@ public class CountryMemoryListService implements CountryService {
         this.cityRepo = cityRepo;
     }
 
+    /*
     @Override
     public void deleteCityFromCountry(BaseCountry targetCountry, City targetCity) {
         countryRepo.deleteCityFromCountry(targetCountry, targetCity);
     }
-
+    */
 
     public BaseCountry findByName(String name) {
         return null;

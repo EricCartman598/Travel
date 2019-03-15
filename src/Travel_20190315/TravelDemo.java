@@ -7,6 +7,7 @@ import Travel_20190315.City.Service.CityService;
 import Travel_20190315.Common.Business.Application.ServiceSupplier;
 import Travel_20190315.Common.Business.Application.StorageType;
 import Travel_20190315.Common.Business.Exceptions.BasicTravelCheckedException;
+import Travel_20190315.Common.Business.Exceptions.ErrorCode;
 import Travel_20190315.Common.Business.Exceptions.NeedToCancelOrderException;
 import Travel_20190315.Common.Business.Service.SortType;
 import Travel_20190315.Country.Domain.BaseCountry;
@@ -38,12 +39,14 @@ public class TravelDemo {
 
 
     public static void main(String[] args) {
+
         CityMemoryListRepo cityRepo1 = new CityMemoryListRepo();
         City cc = cityRepo1.findById(8L);
         createNewCity("New-York");
         createNewCity("Los-Angeles");
         createNewCity("Southpark");
         createNewCity("Moscow");
+        //System.out.println(ErrorCode.NO_SUCH_CITY);
 
         List<String> usaCitiList = new ArrayList<>();
         usaCitiList.add("New-York");
@@ -79,19 +82,14 @@ public class TravelDemo {
             cityService.deleteByEntity(cities.get(0));
         } catch (NeedToCancelOrderException e) {
             for (Order cancelledOrder : e.getCancelledOrders()) {
-                callUser(cancelledOrder.getUser().getPhoneNumber());
+                callUser(cancelledOrder.getUser().getFirstName(), cancelledOrder.getUser().getPhoneNumber());
             }
         }
 
     }
 
     private static void createNewCity(String cityName) {
-        try {
-            cityService.add(new City(cityName));
-        } catch (BasicTravelCheckedException e) {
-            System.out.println(e.getMessage());
-            System.out.println(e.getErrorCode().name());
-        }
+        cityService.add(new City(cityName));
     }
 
     private static void createNewCountry(String countryName, List<String> cityList) {
@@ -102,12 +100,9 @@ public class TravelDemo {
         }
         country.setName(countryName);
         country.setCities(cities);
-        try {
-            countryService.add(country);
-        } catch (BasicTravelCheckedException e) {
-            System.out.println(e.getMessage());
-            System.out.println(e.getErrorCode().name());
-        }
+
+        countryService.add(country);
+
     }
 
     private static void createNewOrder(String userName, String userLastName, UserType userType,
@@ -142,18 +137,13 @@ public class TravelDemo {
         orderingCountry.get(0).setCities(orderingCities);
 
         Order order = new Order(user, price, orderingCountry);
-        try {
-            orderService.add(order);
-        } catch (BasicTravelCheckedException e) {
-            System.out.println(e.getMessage());
-            System.out.println(e.getErrorCode().name());
-        }
+        orderService.add(order);
     }
 
     public static void createNewUser() {
     }
 
-    public static void callUser(String userPhoneNumber) {
-
+    public static void callUser(String userName, String userPhoneNumber) {
+        System.out.println("call user " + userName + " with phone number " + userPhoneNumber);
     }
 }

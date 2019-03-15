@@ -13,5 +13,5 @@ public interface OrderService extends BaseService<Order, Long> {
 
     List<Order> findByCondition(OrderSearchCondition searchCondition);
 
-    void deleteCityFromOrder(Order targetOrder, BaseCountry targetCountry, City targetCity);
+    //void deleteCityFromOrder(Order targetOrder, BaseCountry targetCountry, City targetCity);
 }

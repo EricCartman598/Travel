@@ -35,10 +35,10 @@ public class CountryMemoryListRepo implements CountryRepo {
         return null;
     }
 
-    @Override
+    /*@Override
     public void deleteCityFromCountry(BaseCountry targetCountry, City targetCity) {
         targetCountry.getCities().remove(targetCity);
-    }
+    }*/
 
     @Override
     public void add(BaseCountry data) {

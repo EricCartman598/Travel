@@ -18,6 +18,7 @@ import Travel_20190315.Order.Repo.Impl.OrderMemoryListRepo;
 import Travel_20190315.Order.Repo.OrderRepo;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import static Travel_20190315.Storage.Storage.countries;
@@ -71,26 +72,33 @@ public class CityMemoryListService implements CityService {
     }
 
     private void deleteUnexistingCityFromCountries(City targetCity) {
-        CountryRepo countryRepo = new CountryMemoryListRepo();
+        //CountryRepo countryRepo = new CountryMemoryListRepo();
         for (BaseCountry country : countries) {
-            for (City city : country.getCities()) {
+            country.getCities().remove(targetCity);
+            /*
+            Iterator<City> cityIterator = country.getCities().iterator();
+            while(cityIterator.hasNext()) {
+                City city = cityIterator.next();
                 if (city.equals(targetCity))
-                    countryRepo.deleteCityFromCountry(country, city);
+                    cityIterator.remove(); //countryRepo.deleteCityFromCountry(country, city);
             }
+            */
         }
     }
 
     private List<Order> deleteUnexistingCityFromOrders(City targetCity) {
-        OrderRepo orderRepo = new OrderMemoryListRepo();
+        //OrderRepo orderRepo = new OrderMemoryListRepo();
         List<Order> cancelledOrders = new ArrayList<>();
         for (Order order : orders) {
             for (BaseCountry country : order.getCountries()) {
-                for (City city : country.getCities()) {
+                country.getCities().remove(targetCity);
+                cancelledOrders.add(order);
+                /*for (City city : country.getCities()) {
                     if (city.equals(targetCity)) {
                         orderRepo.deleteCityFromOrder(order, country, city);
                         cancelledOrders.add(order);
                     }
-                }
+                }*/
             }
         }
         return cancelledOrders;

@@ -7,6 +7,7 @@ package Travel_20190315.Order.Service.Impl;
 
 
 import Travel_20190315.City.Domain.City;
+import Travel_20190315.Common.Business.Exceptions.BasicTravelCheckedException;
 import Travel_20190315.Common.Business.Exceptions.NoSuchCityException;
 import Travel_20190315.Common.Business.Exceptions.NoSuchCountryException;
 import Travel_20190315.Country.Domain.BaseCountry;
@@ -37,10 +38,12 @@ public class OrderMemoryListService implements OrderService {
         return orderRepo.findByCondition(searchCondition);
     }
 
+    /*
     @Override
     public void deleteCityFromOrder(Order targetOrder, BaseCountry targetCountry, City targetCity) {
         orderRepo.deleteCityFromOrder(targetOrder, targetCountry, targetCity);
     }
+    */
 
     // check are desired city and country exists
     private void CheckOrderPossibility(Order order) throws NoSuchCountryException, NoSuchCityException {
@@ -57,10 +60,18 @@ public class OrderMemoryListService implements OrderService {
     }
 
     @Override
-    public void add(Order data) throws NoSuchCountryException, NoSuchCityException {
+    public void add(Order data) {
         if (data != null) {
-            CheckOrderPossibility(data);
-            orderRepo.add(data);
+            try {
+                CheckOrderPossibility(data);
+                orderRepo.add(data);
+            } catch (BasicTravelCheckedException e) {
+                System.out.println(e.getMessage());
+                System.out.println(e.getErrorCode());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         }
     }
 
