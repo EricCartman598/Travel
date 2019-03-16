@@ -36,12 +36,12 @@ public class ExportDataToTxtFile implements ExportData {
         dataToWrite.append(ReportStrings.USER_PHONE_NUMBER).append(order.getUser().getPhoneNumber()).append("\r\n");
 
         // order info
-        for(BaseCountry country : order.getCountries()) {
+        for (BaseCountry country : order.getCountries()) {
             dataToWrite.append(ReportStrings.ORDERED_COUNTRY).append(country.getName()).append("\r\n");
             int cityNum = 1;
-            for(City city : country.getCities()) {
+            for (City city : country.getCities()) {
                 dataToWrite.append(String.valueOf(cityNum)).append(". ").append(ReportStrings.ORDERED_CITY).append(city.getName()).append("\r\n");
-                cityNum ++;
+                cityNum++;
             }
         }
 

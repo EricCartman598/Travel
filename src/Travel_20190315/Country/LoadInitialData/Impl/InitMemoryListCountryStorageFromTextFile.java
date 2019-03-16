@@ -20,7 +20,7 @@ public class InitMemoryListCountryStorageFromTextFile implements ImportCountryIn
                                    String filePath) throws FileNotFoundException {
 
         List<BaseCountry> countryList = parseFile(filePath);
-        for(BaseCountry country : countryList) {
+        for (BaseCountry country : countryList) {
             countryService.add(country);
             //for(City city : country.getCities())
             //    cityService.add(city);

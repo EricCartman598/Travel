@@ -6,7 +6,6 @@
 package Travel_20190315.Country.Service.Impl;
 
 
-
 import Travel_20190315.City.Domain.City;
 import Travel_20190315.City.Repo.CityRepo;
 import Travel_20190315.Country.Domain.BaseCountry;
@@ -52,8 +51,8 @@ public class CountryMemoryListService implements CountryService {
 
     @Override
     public City getCapital(BaseCountry country) {
-        for(City city : country.getCities()) {
-            if(city.isCapital()) return city;
+        for (City city : country.getCities()) {
+            if (city.isCapital()) return city;
         }
 
         return null;
@@ -61,23 +60,23 @@ public class CountryMemoryListService implements CountryService {
 
     @Override
     public void add(BaseCountry data) {
-        if(data == null)
+        if (data == null)
             return;
 
-        if(countries.contains(data))
+        if (countries.contains(data))
             return;
 
         countryRepo.add(data);
 
         for (City city : data.getCities()) {
-            if(!cities.contains(city))
+            if (!cities.contains(city))
                 cityRepo.add(city);
         }
     }
 
     @Override
     public BaseCountry findById(Long id) {
-        if(id != null)
+        if (id != null)
             return countryRepo.findById(id);
 
         return null;
@@ -85,7 +84,7 @@ public class CountryMemoryListService implements CountryService {
 
     @Override
     public void deleteById(Long id) {
-        if(id != null)
+        if (id != null)
             countryRepo.deleteById(id);
     }
 
