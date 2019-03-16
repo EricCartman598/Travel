@@ -3,23 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190226.User;
+package travel_20190315.user.domain;
 
 
-import Travel_20190226.Order.Order;
+import travel_20190315.common.business.domain.BaseDomain;
+import travel_20190315.order.domain.Order;
 
 import java.util.List;
 
 /**
- *
  * @author Виталий
  */
-public abstract class User {
-    private Long id;
-    private String firstName;
-    private String lastName;
-    private Passport passport;
-    private List<Order> orders;
+public abstract class User extends BaseDomain<Long> {
+    protected String firstName;
+    protected String lastName;
+    protected Passport passport;
+    protected List<Order> orders;
+    boolean allIncluded;
+    UserType userType;
+    String PhoneNumber;
 
     public class Passport {
         private String serial;
@@ -29,30 +31,37 @@ public abstract class User {
             this.serial = serial;
             this.number = number;
         }
-    }
 
-    public Long getId() {
-        return id;
-    }
+        public String getSerial() {
+            return serial;
+        }
 
-    public void setId(Long id) {
-        this.id = id;
+        public String getNumber() {
+            return number;
+        }
     }
 
     public User(String firstName, String lastName, Passport passport) {
+        super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.passport = passport;
-    }        
-        
+    }
+
+    public User(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public User(String firstName, String lastName, Passport passport, List<Order> orders) {
+        super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.passport = passport;
         this.orders = orders;
     }
 
-     public String getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
@@ -72,8 +81,13 @@ public abstract class User {
         return passport;
     }
 
-    public void setPassport(Passport passport) {
-        this.passport = passport;
+    public String getPhoneNumber() {
+        return PhoneNumber;
+    }
+
+    public void setPassport(String passportSerial, String passportNumber) {
+        this.passport.serial = passportSerial;
+        this.passport.number = passportNumber;
     }
 
     public List<Order> getOrders() {
@@ -83,19 +97,12 @@ public abstract class User {
     public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
-    
-    
-   /*
-    boolean makeOrder(List<Travel_20190222.BaseCountry> countries) {
-        return true;
+
+    public boolean isAllIncluded() {
+        return allIncluded;
     }
 
-    boolean changeOrder(Travel_20190222.order newOrder, Travel_20190222.order oldOrder) {
-        return true;
+    public UserType getUserType() {
+        return userType;
     }
-
-    boolean cancelOrder(Travel_20190222.order cancelledOrder) {
-        return true;
-    } */   
-    
 }

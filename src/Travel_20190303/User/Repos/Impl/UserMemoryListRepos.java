@@ -29,7 +29,7 @@ public class UserMemoryListRepos implements UserRepos {
     }
 
     /*@Override
-    public void setUserPassport(User user, User.Passport passport) {
+    public void setUserPassport(user user, user.Passport passport) {
         user.setPassport(passport);
     }*/
 

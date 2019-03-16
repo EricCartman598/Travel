@@ -52,8 +52,8 @@ public class OrderMemoryListRepos implements OrderRepos {
     @Override
     public void printAll() {
         for (Order order : orders) {
-            System.out.println("User firstName: " + order.getUser().getFirstName() + "\r\n" +
-                    "User firstName: " + order.getUser().getLastName() + "\r\n");
+            System.out.println("user firstName: " + order.getUser().getFirstName() + "\r\n" +
+                    "user firstName: " + order.getUser().getLastName() + "\r\n");
             for (Country country : order.getCountries()) {
                 System.out.println(country.getName());
             }

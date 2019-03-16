@@ -9,7 +9,7 @@ import java.util.List;
 public interface UserRepos extends BaseRepos {
     void addUser(User user);
 
-    //void setUserPassport(User user, User.Passport passport);
+    //void setUserPassport(user user, user.Passport passport);
 
     User findUserById(long id);
 

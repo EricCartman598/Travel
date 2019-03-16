@@ -55,12 +55,12 @@ public class OrderMemoryListRepos implements OrderRepos {
     @Override
     public void printAll() {
         for (Order order : orders) {
-            System.out.println("User firstName: " + order.getUser().getFirstName() + "\r\n" +
-                    "User firstName: " + order.getUser().getLastName());
+            System.out.println("user firstName: " + order.getUser().getFirstName() + "\r\n" +
+                    "user firstName: " + order.getUser().getLastName());
             for (Country country : order.getCountries()) {
                 System.out.println("BaseCountry: " + country.getName());
                 for(City city : country.getCities()) {
-                    System.out.println("City: " + city.getName());
+                    System.out.println("city: " + city.getName());
                 }
             }
             System.out.println("Price: " + order.getPrice());
@@ -112,7 +112,7 @@ public class OrderMemoryListRepos implements OrderRepos {
                 /*if (orderSearchCondition.getCountry().getCities().isEmpty())
                     foundOrders.add(order);
                 else {
-                    for (City city : cities) {
+                    for (city city : cities) {
                         if (order.getCountries().get(i).getCities().contains(orderSearchCondition.getCountry().))
                             foundOrders.add(order);
                     }

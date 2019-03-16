@@ -89,11 +89,11 @@ public class User {
         return true;
     }
 
-    boolean changeOrder(Travel_20190222.Order newOrder, Travel_20190222.Order oldOrder) {
+    boolean changeOrder(Travel_20190222.order newOrder, Travel_20190222.order oldOrder) {
         return true;
     }
 
-    boolean cancelOrder(Travel_20190222.Order cancelledOrder) {
+    boolean cancelOrder(Travel_20190222.order cancelledOrder) {
         return true;
     } */   
     

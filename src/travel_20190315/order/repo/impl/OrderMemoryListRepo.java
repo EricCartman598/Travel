@@ -3,24 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190313.Order.Repo.Impl;
+package travel_20190315.order.repo.impl;
 
 
-import Travel_20190313.City.Domain.City;
-import Travel_20190313.Common.Business.Service.SortType;
-import Travel_20190313.Country.Domain.Country;
-import Travel_20190313.Order.Domain.Order;
-import Travel_20190313.Order.Repo.OrderRepo;
-import Travel_20190313.Order.Search.OrderSearchCondition;
-import Travel_20190313.Storage.SequenceGenerator;
-import Travel_20190313.User.Domain.UserType;
+import travel_20190315.city.domain.City;
+import travel_20190315.common.business.service.SortType;
+import travel_20190315.country.domain.BaseCountry;
+import travel_20190315.order.domain.Order;
+import travel_20190315.order.repo.OrderRepo;
+import travel_20190315.order.search.OrderSearchCondition;
+import travel_20190315.storage.SequenceGenerator;
+import travel_20190315.user.domain.UserType;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import static Travel_20190313.Storage.Storage.*;
+import static travel_20190315.storage.Storage.*;
 
 
 /**
@@ -76,15 +76,15 @@ public class OrderMemoryListRepo implements OrderRepo {
                 }*/
     }
 
-    @Override
-    public void deleteCityFromOrder(Order targetOrder, Country targetCountry, City targetCity) {
-        for (Country country : targetOrder.getCountries()) {
+    /*@Override
+    public void deleteCityFromOrder(order targetOrder, BaseCountry targetCountry, city targetCity) {
+        for (BaseCountry country : targetOrder.getCountries()) {
             if (country.equals(targetCountry)) {
                 country.getCities().remove(targetCity);
                 return;
             }
         }
-    }
+    }*/
 
     @Override
     public void add(Order data) {
@@ -112,7 +112,7 @@ public class OrderMemoryListRepo implements OrderRepo {
         for (Order order : orders) {
             System.out.println("user firstName: " + order.getUser().getFirstName() + "\r\n" +
                     "user firstName: " + order.getUser().getLastName());
-            for (Country country : order.getCountries()) {
+            for (BaseCountry country : order.getCountries()) {
                 System.out.println("BaseCountry: " + country.getName());
                 for (City city : country.getCities()) {
                     System.out.println("city: " + city.getName());
