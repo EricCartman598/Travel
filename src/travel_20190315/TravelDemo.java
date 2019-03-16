@@ -7,9 +7,7 @@ import travel_20190315.common.business.application.ServiceSupplier;
 import travel_20190315.common.business.application.StorageType;
 import travel_20190315.common.business.exceptions.NeedToCancelOrderException;
 import travel_20190315.common.business.service.SortType;
-import travel_20190315.country.domain.BaseCountry;
-import travel_20190315.country.domain.ColdCountry;
-import travel_20190315.country.domain.HotCountry;
+import travel_20190315.country.domain.*;
 import travel_20190315.country.loadInitialdata.impl.InitMemoryListCountryStorageFromTextFile;
 import travel_20190315.country.loadInitialdata.ImportCountryInitialDataFromFile;
 import travel_20190315.country.service.CountryService;
@@ -51,10 +49,12 @@ public class TravelDemo {
         } catch (FileNotFoundException e) {
             System.out.println("Error while file reading!");
         }
-
+        System.out.println("data has been imported");
         cityService.printAll();
+        countryService.printAll();
 
-        createNewOrder("Ivan", "Ivanov", UserType.SIMPLE_USER, "444", "12547",
+
+/*        createNewOrder("Ivan", "Ivanov", UserType.SIMPLE_USER, "444", "12547",
                 500.0, "USA", Arrays.asList("New-York", "Los-Angeles"));
 
         createNewOrder("Masha", "Ivanova", UserType.SIMPLE_USER, "555", "0014",
@@ -84,9 +84,9 @@ public class TravelDemo {
                 callUser(cancelledOrder.getUser().getFirstName(), cancelledOrder.getUser().getPhoneNumber());
             }
         }
-
-        countryService.printAll();
-        cityService.printAll();
+*/
+//        countryService.printAll();
+//        cityService.printAll();
     }
 
     private static void createNewCity(String cityName) {

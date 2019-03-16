@@ -14,9 +14,10 @@ public class CityMemoryListRepo implements CityRepo {
 
     @Override
     public City findByName(String name) {
-        for(City city : cities)
-            if(city.getName().equals(name)) return city;
-
+        for (City city : cities) {
+            if (city.getName().equals(name))
+                return city;
+        }
         return null;
     }
 
@@ -48,7 +49,7 @@ public class CityMemoryListRepo implements CityRepo {
 
     @Override
     public void printAll() {
-        for(City city : cities)
+        for (City city : cities)
             System.out.println(city.getName());
     }
 

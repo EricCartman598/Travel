@@ -7,12 +7,15 @@ package travel_20190315.country.repo.impl;
 
 
 import travel_20190315.country.domain.BaseCountry;
+import travel_20190315.country.domain.ColdCountry;
+import travel_20190315.country.domain.HotCountry;
 import travel_20190315.country.repo.CountryRepo;
 import travel_20190315.country.search.CountrySearchCondition;
 import travel_20190315.storage.SequenceGenerator;
 
 import java.util.List;
 
+import static travel_20190315.country.domain.CountryTemperatureType.COLD;
 import static travel_20190315.storage.Storage.countries;
 
 /**
@@ -23,9 +26,10 @@ public class CountryMemoryListRepo implements CountryRepo {
 
     @Override
     public BaseCountry findByName(String name) {
-        for(BaseCountry country : countries)
-            if(country.getName().equals(name)) return country;
-
+        for(BaseCountry country : countries) {
+            if (country.getName().equals(name))
+                return country;
+        }
         return null;
     }
 
@@ -62,8 +66,19 @@ public class CountryMemoryListRepo implements CountryRepo {
 
     @Override
     public void printAll() {
-        for(BaseCountry country : countries)
+        for(BaseCountry country : countries) {
             System.out.println("countryName: " + country.getName());
+            switch(country.getDiscriminator()) {
+                case COLD:
+                    System.out.println("This is cold country");
+                    System.out.println("telephone code: " + ((ColdCountry)country).getTelephoneCode());
+                    break;
+                case HOT:
+                    System.out.println("This is hot country");
+                    System.out.println("Average temperature: " + ((HotCountry)country).getAverageTemperature());
+                    break;
+            }
+        }
     }
 
     @Override

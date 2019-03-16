@@ -30,14 +30,14 @@ public class BaseCountry extends BaseDomain<Long> {
     public BaseCountry(String name) {
         this.name = name;
         this.language = null;
-        this.cities = null;
+        //this.cities = null;
     }
 
     public BaseCountry(String name, String language) {
         super();
         this.name = name;
         this.language = language;
-        this.cities = null;
+        //this.cities = null;
     }
 
     public CountryTemperatureType getDiscriminator() {

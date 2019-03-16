@@ -3,6 +3,7 @@ package travel_20190315.order.search;
 import travel_20190315.common.business.search.BaseSearchCondition;
 import travel_20190315.common.business.service.SortType;
 import travel_20190315.country.domain.BaseCountry;
+import travel_20190315.country.domain.CountryTemperatureType;
 import travel_20190315.user.domain.UserType;
 
 public class OrderSearchCondition extends BaseSearchCondition {

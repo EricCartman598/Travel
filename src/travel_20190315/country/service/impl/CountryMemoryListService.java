@@ -41,6 +41,9 @@ public class CountryMemoryListService implements CountryService {
     */
 
     public BaseCountry findByName(String name) {
+        if (!name.trim().isEmpty())
+            return countryRepo.findByName(name);
+
         return null;
     }
 

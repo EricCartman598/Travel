@@ -4,7 +4,7 @@ import travel_20190315.common.business.domain.Month;
 
 public class HotCountry extends BaseCountry {
 
-    private Month hotestMonth;
+    private String hotestMonth;
     private Double averageTemperature;
 
     public HotCountry(String name) {
@@ -15,23 +15,23 @@ public class HotCountry extends BaseCountry {
         super(name, language);
     }
 
-    public HotCountry(String name, Month hotestMonth, Double averageTemperature) {
+    public HotCountry(String name, String hotestMonth, Double averageTemperature) {
         super(name);
         this.hotestMonth = hotestMonth;
         this.averageTemperature = averageTemperature;
     }
 
-    public HotCountry(String name, String language, Month hotestMonth, Double averageTemperature) {
+    public HotCountry(String name, String language, String hotestMonth, Double averageTemperature) {
         super(name, language);
         this.hotestMonth = hotestMonth;
         this.averageTemperature = averageTemperature;
     }
 
-    public Month getHotestMonth() {
+    public String getHotestMonth() {
         return hotestMonth;
     }
 
-    public void setHotestMonth(Month hotestMonth) {
+    public void setHotestMonth(String hotestMonth) {
         this.hotestMonth = hotestMonth;
     }
 
