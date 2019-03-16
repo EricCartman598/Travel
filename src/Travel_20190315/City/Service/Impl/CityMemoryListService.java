@@ -91,8 +91,8 @@ public class CityMemoryListService implements CityService {
         List<Order> cancelledOrders = new ArrayList<>();
         for (Order order : orders) {
             for (BaseCountry country : order.getCountries()) {
-                country.getCities().remove(targetCity);
-                cancelledOrders.add(order);
+                if(country.getCities().remove(targetCity))
+                    cancelledOrders.add(order);
                 /*for (City city : country.getCities()) {
                     if (city.equals(targetCity)) {
                         orderRepo.deleteCityFromOrder(order, country, city);

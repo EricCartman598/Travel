@@ -1,4 +1,4 @@
-package Travel_20190315.Country.Domain;
+package Travel_20190315.Common.Business.Domain;
 
 public enum Month {
     JANUARY,

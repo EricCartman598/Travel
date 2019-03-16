@@ -22,7 +22,6 @@ public class Order extends BaseDomain<Long> {
     private List<BaseCountry> countries;
 
 
-
     public Order(User user, double price, List<BaseCountry> countries) {
         super();
         this.user = user;

@@ -9,7 +9,9 @@ package Travel_20190315.Country.Domain;
 import Travel_20190315.City.Domain.City;
 import Travel_20190315.Common.Business.Domain.BaseDomain;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -17,10 +19,14 @@ import java.util.Objects;
  */
 public class BaseCountry extends BaseDomain<Long> {
 
-    private String name;
-    private String language;
-    private List<City> cities;
-    CountryTemperatureType discriminator;
+    protected String name;
+    protected String language;
+    protected List<City> cities = new ArrayList<>();
+    protected CountryTemperatureType discriminator;
+
+    public BaseCountry() {
+
+    }
 
     public BaseCountry(String name) {
         this.name = name;
@@ -33,6 +39,10 @@ public class BaseCountry extends BaseDomain<Long> {
         this.name = name;
         this.language = language;
         this.cities = null;
+    }
+
+    public CountryTemperatureType getDiscriminator() {
+        return discriminator;
     }
 
     public String getName() {
@@ -57,6 +67,10 @@ public class BaseCountry extends BaseDomain<Long> {
 
     public void setCities(List<City> cities) {
         this.cities = cities;
+    }
+
+    public void setDiscriminator(CountryTemperatureType discriminator) {
+        this.discriminator = discriminator;
     }
 
     @Override

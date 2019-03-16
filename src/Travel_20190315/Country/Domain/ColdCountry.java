@@ -2,7 +2,7 @@ package Travel_20190315.Country.Domain;
 
 public class ColdCountry extends BaseCountry {
 
-    private String telephoneCold;
+    private String telephoneCode;
     private boolean isPolarNight;
 
     public ColdCountry(String name) {
@@ -13,15 +13,31 @@ public class ColdCountry extends BaseCountry {
         super(name, language);
     }
 
-    public ColdCountry(String name, String telephoneCold, boolean isPolarNight) {
+    public ColdCountry(String name, String telephoneCode, boolean isPolarNight) {
         super(name);
-        this.telephoneCold = telephoneCold;
+        this.telephoneCode = telephoneCode;
         this.isPolarNight = isPolarNight;
     }
 
-    public ColdCountry(String name, String language, String telephoneCold, boolean isPolarNight) {
+    public ColdCountry(String name, String language, String telephoneCode, boolean isPolarNight) {
         super(name, language);
-        this.telephoneCold = telephoneCold;
+        this.telephoneCode = telephoneCode;
         this.isPolarNight = isPolarNight;
+    }
+
+    public String getTelephoneCode() {
+        return telephoneCode;
+    }
+
+    public void setTelephoneCode(String telephoneCode) {
+        this.telephoneCode = telephoneCode;
+    }
+
+    public boolean isPolarNight() {
+        return isPolarNight;
+    }
+
+    public void setPolarNight(boolean polarNight) {
+        isPolarNight = polarNight;
     }
 }

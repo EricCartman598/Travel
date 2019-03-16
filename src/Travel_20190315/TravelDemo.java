@@ -2,30 +2,33 @@ package Travel_20190315;
 
 
 import Travel_20190315.City.Domain.City;
-import Travel_20190315.City.Repo.Impl.CityMemoryListRepo;
 import Travel_20190315.City.Service.CityService;
 import Travel_20190315.Common.Business.Application.ServiceSupplier;
 import Travel_20190315.Common.Business.Application.StorageType;
-import Travel_20190315.Common.Business.Exceptions.BasicTravelCheckedException;
-import Travel_20190315.Common.Business.Exceptions.ErrorCode;
 import Travel_20190315.Common.Business.Exceptions.NeedToCancelOrderException;
 import Travel_20190315.Common.Business.Service.SortType;
 import Travel_20190315.Country.Domain.BaseCountry;
+import Travel_20190315.Country.LoadInitialData.Impl.InitMemoryListCountryStorageFromTextFile;
+import Travel_20190315.Country.LoadInitialData.ImportCountryInitialDataFromFile;
 import Travel_20190315.Country.Service.CountryService;
 import Travel_20190315.Order.Domain.Order;
 import Travel_20190315.Order.Search.OrderSearchCondition;
 import Travel_20190315.Order.Service.OrderService;
+import Travel_20190315.Reporting.ExportData;
+import Travel_20190315.Reporting.Impl.ExportDataToTxtFile;
 import Travel_20190315.User.Domain.SimpleUser;
 import Travel_20190315.User.Domain.User;
 import Travel_20190315.User.Domain.UserType;
 import Travel_20190315.User.Domain.VipUser;
 import Travel_20190315.User.Service.UserService;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static Travel_20190315.Storage.Storage.cities;
+import static Travel_20190315.Storage.Storage.orders;
 
 
 public class TravelDemo {
@@ -40,43 +43,37 @@ public class TravelDemo {
 
     public static void main(String[] args) {
 
-        CityMemoryListRepo cityRepo1 = new CityMemoryListRepo();
-        City cc = cityRepo1.findById(8L);
-        createNewCity("New-York");
-        createNewCity("Los-Angeles");
-        createNewCity("Southpark");
-        createNewCity("Moscow");
-        //System.out.println(ErrorCode.NO_SUCH_CITY);
+        try {
+            ImportCountryInitialDataFromFile importData = new InitMemoryListCountryStorageFromTextFile();
+            importData.initCountryStorage(countryService, cityService, "D:\\countries.txt");
+        } catch (FileNotFoundException e) {
+            System.out.println("Error while file reading!");
+        }
 
-        List<String> usaCitiList = new ArrayList<>();
-        usaCitiList.add("New-York");
-        usaCitiList.add("Los-Angeles");
-        usaCitiList.add("Southpark");
-        usaCitiList.add("Chicago");
-        createNewCountry("USA", usaCitiList);
+        cityService.printAll();
 
         createNewOrder("Ivan", "Ivanov", UserType.SIMPLE_USER, "444", "12547",
                 500.0, "USA", Arrays.asList("New-York", "Los-Angeles"));
 
         createNewOrder("Masha", "Ivanova", UserType.SIMPLE_USER, "555", "0014",
-                875.50, "USA", Arrays.asList("Kiev", "Livov", "Odessa"));
+                875.50, "Ukraine", Arrays.asList("Kiev", "Livov", "Odessa"));
 
+        // no city "Melburn" into cities storage -- exception
         createNewOrder("Denis", "Ivanova", UserType.VIP_USER, "777", "789",
                 150000.0, "USA", Arrays.asList("Melburn"));
 
-        cityService.printAll();
-        countryService.printAll();
-        orderService.printAll();
-
-        createNewCountry("USA", Arrays.asList("New-York", "Los-Angeles"));//BaseCountry country1 = new BaseCountry("USA");//createNewOountry
-        createNewCountry("Ukraine", Arrays.asList("Kiev", "Livov", "Odessa"));//BaseCountry country2 = new BaseCountry("Ukraine");
-        createNewCountry("Russia", Arrays.asList("Moscow", "Spb", "Novosibirsk"));//BaseCountry country3 = new BaseCountry("Russia");
-
-        OrderSearchCondition orderSearchCondition = new OrderSearchCondition("USA", SortType.DESC);
+        OrderSearchCondition orderSearchCondition = new OrderSearchCondition("Ukraine", SortType.DESC);
         List<Order> foundOrders = orderService.findByCondition(orderSearchCondition);
 
         for (Order order : foundOrders)
             System.out.println(order.getUser().getFirstName());
+
+        try {
+            ExportData exporting = new ExportDataToTxtFile();
+            exporting.exportFile("D:\\report.txt", orders.get(0));
+        } catch (FileNotFoundException e) {
+            System.out.println("Error while recording file!");
+        }
 
         try {
             cityService.deleteByEntity(cities.get(0));
@@ -86,6 +83,8 @@ public class TravelDemo {
             }
         }
 
+        countryService.printAll();
+        cityService.printAll();
     }
 
     private static void createNewCity(String cityName) {
@@ -95,8 +94,8 @@ public class TravelDemo {
     private static void createNewCountry(String countryName, List<String> cityList) {
         BaseCountry country = new BaseCountry("USA", "English");
         List<City> cities = new ArrayList<>();
-        for (int i = 0; i < cityList.size(); i++) {
-            cities.add(new City(cityList.get(i)));
+        for (String s : cityList) {
+            cities.add(new City(s));
         }
         country.setName(countryName);
         country.setCities(cities);
@@ -143,7 +142,7 @@ public class TravelDemo {
     public static void createNewUser() {
     }
 
-    public static void callUser(String userName, String userPhoneNumber) {
+    private static void callUser(String userName, String userPhoneNumber) {
         System.out.println("call user " + userName + " with phone number " + userPhoneNumber);
     }
 }
