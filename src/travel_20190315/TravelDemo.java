@@ -54,7 +54,7 @@ public class TravelDemo {
         countryService.printAll();
 
 
-/*        createNewOrder("Ivan", "Ivanov", UserType.SIMPLE_USER, "444", "12547",
+        createNewOrder("Ivan", "Ivanov", UserType.SIMPLE_USER, "444", "12547",
                 500.0, "USA", Arrays.asList("New-York", "Los-Angeles"));
 
         createNewOrder("Masha", "Ivanova", UserType.SIMPLE_USER, "555", "0014",
@@ -66,7 +66,7 @@ public class TravelDemo {
 
         OrderSearchCondition orderSearchCondition = new OrderSearchCondition("Ukraine", SortType.DESC);
         List<Order> foundOrders = orderService.findByCondition(orderSearchCondition);
-
+/*
         for (Order order : foundOrders)
             System.out.println(order.getUser().getFirstName());
 
