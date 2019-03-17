@@ -25,6 +25,7 @@ import travel_20190315.user.service.UserService;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 import static travel_20190315.storage.Storage.cities;
@@ -66,7 +67,7 @@ public class TravelDemo {
 
         OrderSearchCondition orderSearchCondition = new OrderSearchCondition("Ukraine", SortType.DESC);
         List<Order> foundOrders = orderService.findByCondition(orderSearchCondition);
-/*
+
         for (Order order : foundOrders)
             System.out.println(order.getUser().getFirstName());
 
@@ -84,9 +85,9 @@ public class TravelDemo {
                 callUser(cancelledOrder.getUser().getFirstName(), cancelledOrder.getUser().getPhoneNumber());
             }
         }
-*/
-//        countryService.printAll();
-//        cityService.printAll();
+
+        countryService.printAll();
+        cityService.printAll();
     }
 
     private static void createNewCity(String cityName) {
@@ -127,7 +128,7 @@ public class TravelDemo {
         User.Passport userPassport = user.new Passport(passportSerial, passportNumber);
         //user.setPassport(passportSerial, passportNumber);
 
-        List<City> orderingCities = new ArrayList<>();
+        /*List<City> orderingCities = new ArrayList<>();
 
         for (String cityName : citiesNames) {
             orderingCities.add(new City(cityName));
@@ -136,6 +137,36 @@ public class TravelDemo {
         List<BaseCountry> orderingCountry = new ArrayList<>();
         orderingCountry.add(new BaseCountry(countryName));
         orderingCountry.get(0).setCities(orderingCities);
+*/
+        List<BaseCountry> orderingCountry = new ArrayList<>();
+        //List<City> orderingCities = new ArrayList<>();
+        //for(String cityName : citiesNames) {
+        //    orderingCities.add(new City(cityName));
+        //}
+
+        switch(countryService.findByName(countryName).getDiscriminator()) {
+            case HOT:
+                orderingCountry.add(new HotCountry(countryName));
+                break;
+            case COLD:
+                orderingCountry.add(new ColdCountry(countryName));
+                break;
+        }
+        for(String cityName : citiesNames) {
+            orderingCountry.get(0).getCities().add(new City(cityName));
+        }
+
+        /*Iterator<City> iter = orderingCountry.get(0).getCities().iterator();
+        while(iter.hasNext()) {
+            City city = iter.next();
+            //for(City city : orderingCountry.get(0).getCities())
+            if(!citiesNames.contains(city.getName()))
+                iter.remove();
+        }*/
+        /*for(String cityName : citiesNames) {
+            orderingCountry.get(0).getCities().add(new City(cityName));
+        }*/
+        //orderingCountry.add(new BaseCountry(countryName, orderingCities));
 
         Order order = new Order(user, price, orderingCountry);
         orderService.add(order);

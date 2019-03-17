@@ -40,6 +40,11 @@ public class BaseCountry extends BaseDomain<Long> {
         //this.cities = null;
     }
 
+    public BaseCountry(String name, List<City> cities) {
+        this.name = name;
+        this.cities = cities;
+    }
+
     public CountryTemperatureType getDiscriminator() {
         return discriminator;
     }
