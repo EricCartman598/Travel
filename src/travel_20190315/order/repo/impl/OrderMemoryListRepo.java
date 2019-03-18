@@ -39,8 +39,8 @@ public class OrderMemoryListRepo implements OrderRepo {
             if (!isMatchUserType)
                 continue;
 
-            for (int i = 0; i < order.getCountries().size(); i++) {
-                if (!order.getCountries().contains(searchCondition.getCountry()))//if (!order.getCountries().contains(countries.get(i)))
+            for(BaseCountry country : order.getCountries()) {//for (int i = 0; i < order.getCountries().size(); i++) {
+                if(!country.getName().equals(searchCondition.getCountry().getName()))//if (!order.getCountries().contains(searchCondition.getCountry()))//if (!order.getCountries().contains(countries.get(i)))
                     continue;
                 else
                     foundOrders.add(order);

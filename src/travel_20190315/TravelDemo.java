@@ -126,24 +126,17 @@ public class TravelDemo {
         }
 
         User.Passport userPassport = user.new Passport(passportSerial, passportNumber);
-        //user.setPassport(passportSerial, passportNumber);
 
-        /*List<City> orderingCities = new ArrayList<>();
-
-        for (String cityName : citiesNames) {
-            orderingCities.add(new City(cityName));
+        /*
+        if(countryService.findByName(countryName) != null)
+            orderingCountry.add(countryService.findByName(countryName));
+        for(String cityName : citiesNames) {
+            if(cityService.findByName(cityName) != null)
+                orderingCountry.get(0).getCities().add(cityService.findByName(cityName));
         }
+        */
 
         List<BaseCountry> orderingCountry = new ArrayList<>();
-        orderingCountry.add(new BaseCountry(countryName));
-        orderingCountry.get(0).setCities(orderingCities);
-*/
-        List<BaseCountry> orderingCountry = new ArrayList<>();
-        //List<City> orderingCities = new ArrayList<>();
-        //for(String cityName : citiesNames) {
-        //    orderingCities.add(new City(cityName));
-        //}
-
         switch(countryService.findByName(countryName).getDiscriminator()) {
             case HOT:
                 orderingCountry.add(new HotCountry(countryName));
@@ -155,18 +148,6 @@ public class TravelDemo {
         for(String cityName : citiesNames) {
             orderingCountry.get(0).getCities().add(new City(cityName));
         }
-
-        /*Iterator<City> iter = orderingCountry.get(0).getCities().iterator();
-        while(iter.hasNext()) {
-            City city = iter.next();
-            //for(City city : orderingCountry.get(0).getCities())
-            if(!citiesNames.contains(city.getName()))
-                iter.remove();
-        }*/
-        /*for(String cityName : citiesNames) {
-            orderingCountry.get(0).getCities().add(new City(cityName));
-        }*/
-        //orderingCountry.add(new BaseCountry(countryName, orderingCities));
 
         Order order = new Order(user, price, orderingCountry);
         orderService.add(order);
