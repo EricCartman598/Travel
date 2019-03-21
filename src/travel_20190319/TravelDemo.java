@@ -46,7 +46,7 @@ public class TravelDemo {
         StorageInitor storageInitor = new StorageInitor();
         try {
             storageInitor.initCountryStorageFromFile(countryService,
-                    "D:\\Java_projects\\Travel\\countries.xml", StorageInitor.DataSourceType.XML_FILE);
+                            "resources/countries.xml", StorageInitor.DataSourceType.XML_FILE);
         } catch (Exception e) {
             e.printStackTrace();
         }

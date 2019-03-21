@@ -1,0 +1,20 @@
+Country : USA
+Language : Eng
+Cities: New-York, Los-Angeles, Chicago, Southpark
+Discriminator: HOT
+Hotest_month: July
+Average_temperature: 30.5
+
+Country : Ukraine
+Language : UA
+Cities: Kiev, Livov, Odessa
+Discriminator: COLD
+Telephone_code: +380
+Is_polar_night: no
+
+Country : Russia
+Language : Rus
+Cities: Moscow, Novosibirsk, Omsk, SPb
+Discriminator: COLD
+Telephone_code: +7
+Is_polar_night: no

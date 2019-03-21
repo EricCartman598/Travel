@@ -1,0 +1,36 @@
+<countries>
+	<country discriminator="hot">
+		<country_name>USA</country_name>
+		<language>Eng</language>
+		<cities>
+			<city>New-York</city>
+			<city>Los-Angeles</city>
+			<city>Chicago</city>
+		</cities>		
+		<hotest_month>July</hotest_month>
+		<average_temperature>39.6</average_temperature>
+	</country>
+	<country discriminator="cold">
+		<country_name>Ukraine</country_name>
+		<language>UA</language>
+		<cities>
+			<city>Kiev</city>
+			<city>Livov</city>
+			<city>Odessa</city>
+		</cities>		
+		<telephone_code>+380</telephone_code>
+		<is_polar_night>no</is_polar_night>
+	</country>
+	<country discriminator="cold">
+		<country_name>Russia</country_name>
+		<language>Rus</language>
+		<cities>
+			<city>Moscow</city>
+			<city>Novosibirsk</city>
+			<city>Omsk</city>
+			<city>Spb</city>
+		</cities>		
+		<telephone_code>+7</telephone_code>
+		<is_polar_night>yes</is_polar_night>
+	</country>
+</countries>
