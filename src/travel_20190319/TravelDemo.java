@@ -1,34 +1,35 @@
-package travel_20190315;
+package travel_20190319;
 
 
-import travel_20190315.city.domain.City;
-import travel_20190315.city.service.CityService;
-import travel_20190315.common.business.application.ServiceSupplier;
-import travel_20190315.common.business.application.StorageType;
-import travel_20190315.common.business.exceptions.NeedToCancelOrderException;
-import travel_20190315.common.business.service.SortType;
-import travel_20190315.country.domain.BaseCountry;
-import travel_20190315.country.domain.ColdCountry;
-import travel_20190315.country.domain.HotCountry;
-import travel_20190315.country.loadInitialdata.ImportCountryInitialDataFromFile;
-import travel_20190315.country.loadInitialdata.impl.InitMemoryListCountryStorageFromTextFile;
-import travel_20190315.country.service.CountryService;
-import travel_20190315.order.domain.Order;
-import travel_20190315.order.search.OrderSearchCondition;
-import travel_20190315.order.service.OrderService;
-import travel_20190315.reporting.ExportData;
-import travel_20190315.reporting.impl.ExportDataToTxtFile;
-import travel_20190315.user.domain.SimpleUser;
-import travel_20190315.user.domain.User;
-import travel_20190315.user.domain.UserType;
-import travel_20190315.user.domain.VipUser;
-import travel_20190315.user.service.UserService;
+import travel_20190319.city.domain.City;
+import travel_20190319.city.service.CityService;
+import travel_20190319.common.business.application.ServiceSupplier;
+import travel_20190319.common.business.application.StorageType;
+import travel_20190319.common.business.exceptions.NeedToCancelOrderException;
+import travel_20190319.common.business.service.SortType;
+import travel_20190319.country.domain.BaseCountry;
+import travel_20190319.country.domain.ColdCountry;
+import travel_20190319.country.domain.HotCountry;
+import travel_20190319.country.service.CountryService;
+import travel_20190319.order.domain.Order;
+import travel_20190319.order.search.OrderSearchCondition;
+import travel_20190319.order.service.OrderService;
+import travel_20190319.reporting.ExportData;
+import travel_20190319.reporting.impl.ExportDataToTxtFile;
+import travel_20190319.storage.loadinitialdata.StorageInitor;
+import travel_20190319.user.domain.SimpleUser;
+import travel_20190319.user.domain.User;
+import travel_20190319.user.domain.UserType;
+import travel_20190319.user.domain.VipUser;
+import travel_20190319.user.service.UserService;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import static travel_20190315.storage.Storage.cities;
-import static travel_20190315.storage.Storage.orders;
+
+import static travel_20190319.storage.Storage.cities;
+import static travel_20190319.storage.Storage.orders;
 
 
 public class TravelDemo {
@@ -42,11 +43,12 @@ public class TravelDemo {
 
     public static void main(String[] args) {
 
+        StorageInitor storageInitor = new StorageInitor();
         try {
-            ImportCountryInitialDataFromFile importData = new InitMemoryListCountryStorageFromTextFile();
-            importData.initCountryStorage(countryService, cityService, "d:\\Java_projects\\Travel\\countries.txt");
-        } catch (FileNotFoundException e) {
-            System.out.println("Error while file reading!");
+            storageInitor.initCountryStorageFromFile(countryService,
+                    "D:\\Java_projects\\Travel\\countries.xml", StorageInitor.DataSourceType.XML_FILE);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         System.out.println("data has been imported");
         cityService.printAll();

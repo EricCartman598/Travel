@@ -1,18 +1,17 @@
-package travel_20190315.country.loadInitialdata.impl;
+package travel_20190319.storage.loadinitialdata.impl;
 
-import travel_20190315.city.domain.City;
-import travel_20190315.city.service.CityService;
-import travel_20190315.city.service.impl.CityMemoryListService;
-import travel_20190315.common.solution.dataclasses.Pair;
-import travel_20190315.country.domain.BaseCountry;
-import travel_20190315.country.domain.ColdCountry;
-import travel_20190315.country.domain.CountryTemperatureType;
-import travel_20190315.country.domain.HotCountry;
+import travel_20190319.city.domain.City;
+import travel_20190319.city.service.CityService;
+import travel_20190319.common.solution.dataclasses.Pair;
+import travel_20190319.country.domain.BaseCountry;
+import travel_20190319.country.domain.ColdCountry;
+import travel_20190319.country.domain.CountryTemperatureType;
+import travel_20190319.country.domain.HotCountry;
 
 
-import travel_20190315.country.loadInitialdata.CountryDataFields;
-import travel_20190315.country.loadInitialdata.ImportCountryInitialDataFromFile;
-import travel_20190315.country.service.CountryService;
+import travel_20190319.country.service.CountryService;
+import travel_20190319.storage.loadinitialdata.CountryDataFields;
+import travel_20190319.storage.loadinitialdata.ImportDataFromFile;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ import java.util.List;
 
 
 
-public class InitMemoryListCountryStorageFromTextFile implements ImportCountryInitialDataFromFile {
+public class InitMemoryListCountryStorageFromTextFile implements ImportDataFromFile<List<BaseCountry>> {
     private String hotestMonth;
     private Double averageTemperature;
     private String telephoneCode;
@@ -34,20 +33,10 @@ public class InitMemoryListCountryStorageFromTextFile implements ImportCountryIn
     HotCountry hotCountry = new HotCountry("");
 
     @Override
-    public void initCountryStorage(CountryService countryService, CityService cityService,
-                                   String filePath) throws FileNotFoundException {
-
+    public List<BaseCountry> getDataFromFile(String filePath) throws Exception {
         List<BaseCountry> countryList = parseFile(filePath);
-        for (BaseCountry country : countryList) {
-            countryService.add(country);
-            //for(city city : country.getCities())
-            //    cityService.add(city);
-        }
-    }
 
-    @Override
-    public void initCityStorage(CityMemoryListService cityService, String filePath) throws FileNotFoundException {
-
+        return countryList;
     }
 
     private void fillCountryField(Pair countryParams) {
@@ -137,8 +126,6 @@ public class InitMemoryListCountryStorageFromTextFile implements ImportCountryIn
                 //Pair countryParams = new Pair(lines[0].trim(), lines[1].trim());
 
             }
-
-
 
             importedCountries.add(createCountry());
         } catch (FileNotFoundException e) {
