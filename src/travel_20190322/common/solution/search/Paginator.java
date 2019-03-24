@@ -31,10 +31,10 @@ public class Paginator {
         this.offset = offset;
     }
 
-    public <T extends List> boolean isLimitsValid(int startPos, int endPos, T data) {
+    /*public <T extends List> boolean isLimitsValid(int startPos, int endPos, T data) {
         return !(startPos < 0 || startPos > data.size() ||
                 endPos < 0 || endPos > data.size() - startPos ||
                 endPos < startPos);
-    }
+    }*/
 
 }

@@ -82,14 +82,19 @@ public class OrderMemoryListRepo implements OrderRepo {
                     searchCondition.getPaginator().getLimit() >  foundOrders.size() - searchCondition.getPaginator().getOffset() ||
                     searchCondition.getPaginator().getLimit() < searchCondition.getPaginator().getOffset());*/
 
-            boolean isPaginatorLimitsValid = searchCondition.getPaginator().isLimitsValid(searchCondition.getPaginator().getOffset(),
-                    searchCondition.getPaginator().getLimit(), foundOrders);
-            if (!isPaginatorLimitsValid)
-                return foundOrders;
+            //boolean isPaginatorLimitsValid = searchCondition.getPaginator().isLimitsValid(searchCondition.getPaginator().getOffset(),
+            //        searchCondition.getPaginator().getLimit(), foundOrders);
+            //if (!isPaginatorLimitsValid)
+            //    return foundOrders;
 
             int startPosition = searchCondition.getPaginator().getOffset();
             int endPosition = startPosition + searchCondition.getPaginator().getLimit();
-            return foundOrders.subList(startPosition, endPosition);
+            try {
+                return foundOrders.subList(startPosition, endPosition);
+            } catch (Exception e) {
+                return foundOrders;
+            }
+
         }
     }
 
@@ -149,19 +154,38 @@ public class OrderMemoryListRepo implements OrderRepo {
     @Override
     public void printAll(Paginator paginator) {
         List<Order> printedOrders = orders;
-        if(paginator != null) {
-            boolean isPaginatorLimitsValid = paginator.isLimitsValid(paginator.getOffset(),
-                    paginator.getLimit(), orders);
+        if (paginator != null) {
+            //boolean isPaginatorLimitsValid = paginator.isLimitsValid(paginator.getOffset(),
+            //        paginator.getLimit(), orders);
 
-            if (isPaginatorLimitsValid) {
-                int startPosition = paginator.getOffset();
-                int endPosition = paginator.getLimit() + startPosition;
+            // if (isPaginatorLimitsValid) {
+            int startPosition = paginator.getOffset();
+            int endPosition = paginator.getLimit() + startPosition;
+            try {
                 printedOrders = orders.subList(startPosition, endPosition);
+            } catch (Exception e) {
+                printedOrders = orders;
+            } finally {
+                for (Order order : printedOrders) {
+                    System.out.println("user firstName: " + order.getUser().getFirstName() + "\r\n" +
+                            "user firstName: " + order.getUser().getLastName());
+                    for (BaseCountry country : order.getCountries()) {
+                        System.out.println("BaseCountry: " + country.getName());
+                        for (City city : country.getCities()) {
+                            System.out.println("city: " + city.getName());
+                        }
+                    }
+                    System.out.println("Price: " + order.getPrice());
+                }
             }
+            //int startPosition = paginator.getOffset();
+            //int endPosition = paginator.getLimit() + startPosition;
+            //printedOrders = orders.subList(startPosition, endPosition);
+            //}
         }
 
 
-        for (Order order : printedOrders) {
+        /*for (Order order : printedOrders) {
             System.out.println("user firstName: " + order.getUser().getFirstName() + "\r\n" +
                     "user firstName: " + order.getUser().getLastName());
             for (BaseCountry country : order.getCountries()) {
@@ -171,7 +195,7 @@ public class OrderMemoryListRepo implements OrderRepo {
                 }
             }
             System.out.println("Price: " + order.getPrice());
-        }
+        }*/
     }
 
     @Override
