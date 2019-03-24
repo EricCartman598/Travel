@@ -2,6 +2,7 @@ package travel_20190322.common.solution.service;
 
 import travel_20190322.common.business.exceptions.CannotDeleteCityException;
 import travel_20190322.common.business.exceptions.NeedToCancelOrderException;
+import travel_20190322.common.solution.search.Paginator;
 
 public interface BaseService<T, ID> {
 
@@ -11,7 +12,7 @@ public interface BaseService<T, ID> {
 
     void deleteById(ID id) throws NeedToCancelOrderException, CannotDeleteCityException;
 
-    void printAll();
+    void printAll(Paginator paginator);
 
     void update(T data);
 }

@@ -7,6 +7,7 @@ import travel_20190322.common.business.application.ServiceSupplier;
 import travel_20190322.common.business.application.StorageType;
 import travel_20190322.common.business.exceptions.CannotDeleteCityException;
 import travel_20190322.common.business.search.SortOrderDirection;
+import travel_20190322.common.solution.search.Paginator;
 import travel_20190322.country.domain.BaseCountry;
 import travel_20190322.country.service.CountryService;
 import travel_20190322.order.domain.Order;
@@ -50,8 +51,8 @@ public class TravelDemo {
             e.printStackTrace();
         }
         System.out.println("data has been imported");
-        cityService.printAll();
-        countryService.printAll();
+        cityService.printAll(new Paginator(3, 1));
+        countryService.printAll(new Paginator(3, 1));
 
 
         createNewOrder("Masha", "Ivanov", UserType.SIMPLE_USER, "444", "12547",
@@ -84,7 +85,7 @@ public class TravelDemo {
         createNewOrder("Denis", "Ivanova", UserType.VIP_USER, "777", "789",
                 1000.0, "USA", Arrays.asList("Los-Angeles"));
 
-        OrderSearchCondition orderSearchCondition = new OrderSearchCondition("Ukraine", SortOrderDirection.ASC);
+        OrderSearchCondition orderSearchCondition = new OrderSearchCondition("Ukraine", SortOrderDirection.ASC, new Paginator(3, 1));
         List<Order> foundOrders = orderService.findByCondition(orderSearchCondition);
 
         for (Order order : foundOrders)
@@ -103,10 +104,11 @@ public class TravelDemo {
             System.out.println(e.getMessage());
         }
 
-        countryService.printAll();
-        cityService.printAll();
+        countryService.printAll(new Paginator(3, 1));
+        cityService.printAll(new Paginator(3, 1));
         System.out.println("---------------------------\r\n");
-        orderService.printAll();
+        orderService.printAll(new Paginator(3, 1));
+        //orderService.printAll(null);
     }
 
     private static void createNewCity(String cityName) {

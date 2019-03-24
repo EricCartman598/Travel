@@ -6,6 +6,7 @@
 package travel_20190322.country.repo.impl;
 
 
+import travel_20190322.common.solution.search.Paginator;
 import travel_20190322.country.domain.BaseCountry;
 import travel_20190322.country.domain.ColdCountry;
 import travel_20190322.country.domain.HotCountry;
@@ -65,7 +66,7 @@ public class CountryMemoryListRepo implements CountryRepo {
     }
 
     @Override
-    public void printAll() {
+    public void printAll(Paginator paginator) {
         for(BaseCountry country : countries) {
             System.out.println("countryName: " + country.getName());
             switch(country.getDiscriminator()) {

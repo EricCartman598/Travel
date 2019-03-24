@@ -3,6 +3,7 @@ package travel_20190322.city.repo.impl;
 import travel_20190322.city.domain.City;
 import travel_20190322.city.repo.CityRepo;
 import travel_20190322.city.search.CitySearchCondition;
+import travel_20190322.common.solution.search.Paginator;
 import travel_20190322.storage.SequenceGenerator;
 
 import java.util.List;
@@ -48,7 +49,7 @@ public class CityMemoryListRepo implements CityRepo {
     }
 
     @Override
-    public void printAll() {
+    public void printAll(Paginator paginator) {
         for (City city : cities)
             System.out.println(city.getName());
     }

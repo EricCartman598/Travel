@@ -10,6 +10,7 @@ import travel_20190322.city.domain.City;
 import travel_20190322.common.business.exceptions.BasicTravelCheckedException;
 import travel_20190322.common.business.exceptions.NoSuchCityException;
 import travel_20190322.common.business.exceptions.NoSuchCountryException;
+import travel_20190322.common.solution.search.Paginator;
 import travel_20190322.country.domain.BaseCountry;
 import travel_20190322.order.domain.Order;
 import travel_20190322.order.repo.OrderRepo;
@@ -91,8 +92,8 @@ public class OrderMemoryListService implements OrderService {
     }
 
     @Override
-    public void printAll() {
-        orderRepo.printAll();
+    public void printAll(Paginator paginator) {
+        orderRepo.printAll(paginator);
     }
 
     @Override

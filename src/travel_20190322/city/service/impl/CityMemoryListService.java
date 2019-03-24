@@ -11,6 +11,7 @@ import travel_20190322.city.search.CitySearchCondition;
 import travel_20190322.city.service.CityService;
 import travel_20190322.common.business.exceptions.CannotDeleteCityException;
 import travel_20190322.common.business.exceptions.NeedToCancelOrderException;
+import travel_20190322.common.solution.search.Paginator;
 import travel_20190322.country.domain.BaseCountry;
 import travel_20190322.order.domain.Order;
 import travel_20190322.order.repo.OrderRepo;
@@ -132,8 +133,8 @@ public class CityMemoryListService implements CityService {
     }
 
     @Override
-    public void printAll() {
-        cityRepo.printAll();
+    public void printAll(Paginator paginator) {
+        cityRepo.printAll(paginator);
     }
 
     @Override

@@ -6,6 +6,7 @@
 package travel_20190322.user.service.impl;
 
 
+import travel_20190322.common.solution.search.Paginator;
 import travel_20190322.user.domain.User;
 import travel_20190322.user.repo.UserRepo;
 import travel_20190322.user.search.UserSearchCondition;
@@ -50,8 +51,8 @@ public class UserMemoryListService implements UserService {
     }
 
     @Override
-    public void printAll() {
-        userRepo.printAll();
+    public void printAll(Paginator paginator) {
+        userRepo.printAll(paginator);
     }
 
     @Override

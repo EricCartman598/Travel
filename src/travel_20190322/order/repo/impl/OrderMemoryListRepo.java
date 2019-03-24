@@ -8,6 +8,7 @@ package travel_20190322.order.repo.impl;
 
 import travel_20190322.city.domain.City;
 import travel_20190322.common.business.search.SortOrderDirection;
+import travel_20190322.common.solution.search.Paginator;
 import travel_20190322.country.domain.BaseCountry;
 import travel_20190322.order.domain.Order;
 import travel_20190322.order.repo.OrderRepo;
@@ -64,15 +65,32 @@ public class OrderMemoryListRepo implements OrderRepo {
     public List<Order> findByCondition(OrderSearchCondition searchCondition) {
 
         List<Order> foundOrders = doSearch(searchCondition);
-        if(foundOrders.isEmpty())
+        if (foundOrders.isEmpty())
             return null;
 
-        if(searchCondition.getSortOrderDirection() != null) {
+        if (searchCondition.getSortOrderDirection() != null) {
             OrderOrderingComponent orderingComponent = new OrderOrderingComponent();
             orderingComponent.applyOrdering(foundOrders, searchCondition);
         }
 
-        return foundOrders;
+        if (searchCondition.getPaginator() == null)
+            return foundOrders;
+        else {
+            /*boolean isPaginatorLimitsValid = !(searchCondition.getPaginator().getOffset() < 0 ||
+                    searchCondition.getPaginator().getOffset() > foundOrders.size() ||
+                    searchCondition.getPaginator().getLimit() < 0 ||
+                    searchCondition.getPaginator().getLimit() >  foundOrders.size() - searchCondition.getPaginator().getOffset() ||
+                    searchCondition.getPaginator().getLimit() < searchCondition.getPaginator().getOffset());*/
+
+            boolean isPaginatorLimitsValid = searchCondition.getPaginator().isLimitsValid(searchCondition.getPaginator().getOffset(),
+                    searchCondition.getPaginator().getLimit(), foundOrders);
+            if (!isPaginatorLimitsValid)
+                return foundOrders;
+
+            int startPosition = searchCondition.getPaginator().getOffset();
+            int endPosition = startPosition + searchCondition.getPaginator().getLimit();
+            return foundOrders.subList(startPosition, endPosition);
+        }
     }
 
     @Override
@@ -129,8 +147,21 @@ public class OrderMemoryListRepo implements OrderRepo {
     }
 
     @Override
-    public void printAll() {
-        for (Order order : orders) {
+    public void printAll(Paginator paginator) {
+        List<Order> printedOrders = orders;
+        if(paginator != null) {
+            boolean isPaginatorLimitsValid = paginator.isLimitsValid(paginator.getOffset(),
+                    paginator.getLimit(), orders);
+
+            if (isPaginatorLimitsValid) {
+                int startPosition = paginator.getOffset();
+                int endPosition = paginator.getLimit() + startPosition;
+                printedOrders = orders.subList(startPosition, endPosition);
+            }
+        }
+
+
+        for (Order order : printedOrders) {
             System.out.println("user firstName: " + order.getUser().getFirstName() + "\r\n" +
                     "user firstName: " + order.getUser().getLastName());
             for (BaseCountry country : order.getCountries()) {

@@ -8,6 +8,7 @@ package travel_20190322.country.service.impl;
 
 import travel_20190322.city.domain.City;
 import travel_20190322.city.repo.CityRepo;
+import travel_20190322.common.solution.search.Paginator;
 import travel_20190322.country.domain.BaseCountry;
 import travel_20190322.country.repo.CountryRepo;
 import travel_20190322.country.search.CountrySearchCondition;
@@ -92,8 +93,8 @@ public class CountryMemoryListService implements CountryService {
     }
 
     @Override
-    public void printAll() {
-        countryRepo.printAll();
+    public void printAll(Paginator paginator) {
+        countryRepo.printAll(paginator);
     }
 
     @Override

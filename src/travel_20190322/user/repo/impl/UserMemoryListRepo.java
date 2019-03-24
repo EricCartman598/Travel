@@ -6,6 +6,7 @@
 package travel_20190322.user.repo.impl;
 
 
+import travel_20190322.common.solution.search.Paginator;
 import travel_20190322.storage.SequenceGenerator;
 import travel_20190322.user.domain.User;
 import travel_20190322.user.repo.UserRepo;
@@ -49,7 +50,7 @@ public class UserMemoryListRepo implements UserRepo {
     }
 
     @Override
-    public void printAll() {
+    public void printAll(Paginator paginator) {
         for(User user : users) {
             System.out.println("user firstname: " + user.getFirstName() + "\r\n" +
                     "userLastName: " + user.getLastName() + "\r\n" +
