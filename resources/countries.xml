@@ -3,21 +3,50 @@
 		<country_name>USA</country_name>
 		<language>Eng</language>
 		<cities>
-			<city>New-York</city>
-			<city>Los-Angeles</city>
-			<city>Chicago</city>
-		</cities>		
+			<city>
+				<city_name>Vashington</city_name>
+				<population>36574</population>
+				<is_capital>yes</is_capital>	
+			</city>
+			<city>
+				<city_name>New-York</city_name>
+				<population>2588</population>
+				<is_capital>no</is_capital>	
+			</city>
+			<city>
+				<city_name>Los-Angeles</city_name>
+				<population>447433</population>
+				<is_capital>no</is_capital>	
+			</city>			
+			<city>
+				<city_name>Chicago</city_name>
+				<population>23456</population>
+				<is_capital>no</is_capital>	
+			</city>			
+		</cities>
 		<hotest_month>July</hotest_month>
 		<average_temperature>39.6</average_temperature>
 	</country>
 	<country discriminator="cold">
 		<country_name>Ukraine</country_name>
 		<language>UA</language>
-		<cities>
-			<city>Kiev</city>
-			<city>Livov</city>
-			<city>Odessa</city>
-		</cities>		
+		<cities>	
+			<city>
+				<city_name>Livov</city_name>
+				<population>543</population>
+				<is_capital>no</is_capital>	
+			</city>	
+			<city>
+				<city_name>Kiev</city_name>
+				<population>788</population>
+				<is_capital>yes</is_capital>	
+			</city>			
+			<city>
+				<city_name>Odessa</city_name>
+				<population>111</population>
+				<is_capital>no</is_capital>	
+			</city>
+		</cities>
 		<telephone_code>+380</telephone_code>
 		<is_polar_night>no</is_polar_night>
 	</country>
@@ -25,11 +54,27 @@
 		<country_name>Russia</country_name>
 		<language>Rus</language>
 		<cities>
-			<city>Moscow</city>
-			<city>Novosibirsk</city>
-			<city>Omsk</city>
-			<city>Spb</city>
-		</cities>		
+			<city>
+				<city_name>Moscow</city_name>
+				<population>500</population>
+				<is_capital>yes</is_capital>	
+			</city>
+			<city>
+				<city_name>Novosibirsk</city_name>
+				<population>400</population>
+				<is_capital>no</is_capital>	
+			</city>
+			<city>
+				<city_name>Omsk</city_name>
+				<population>300</population>
+				<is_capital>no</is_capital>	
+			</city>
+			<city>
+				<city_name>Spb</city_name>
+				<population>200</population>
+				<is_capital>no</is_capital>	
+			</city>	
+		</cities>
 		<telephone_code>+7</telephone_code>
 		<is_polar_night>yes</is_polar_night>
 	</country>

@@ -1,33 +1,34 @@
-package travel_20190319;
+package travel_20190322;
 
 
-import travel_20190319.city.domain.City;
-import travel_20190319.city.service.CityService;
-import travel_20190319.common.business.application.ServiceSupplier;
-import travel_20190319.common.business.application.StorageType;
-import travel_20190319.common.business.exceptions.NeedToCancelOrderException;
-import travel_20190319.common.business.service.SortType;
-import travel_20190319.country.domain.BaseCountry;
-import travel_20190319.country.domain.ColdCountry;
-import travel_20190319.country.domain.HotCountry;
-import travel_20190319.country.service.CountryService;
-import travel_20190319.order.domain.Order;
-import travel_20190319.order.search.OrderSearchCondition;
-import travel_20190319.order.service.OrderService;
-import travel_20190319.reporting.ExportData;
-import travel_20190319.reporting.impl.ExportDataToTxtFile;
-import travel_20190319.storage.loadinitialdata.StorageInitor;
-import travel_20190319.user.domain.SimpleUser;
-import travel_20190319.user.domain.User;
-import travel_20190319.user.domain.UserType;
-import travel_20190319.user.domain.VipUser;
-import travel_20190319.user.service.UserService;
+import travel_20190322.city.domain.City;
+import travel_20190322.city.service.CityService;
+import travel_20190322.common.business.application.ServiceSupplier;
+import travel_20190322.common.business.application.StorageType;
+import travel_20190322.common.business.exceptions.CannotDeleteCityException;
+import travel_20190322.common.business.search.SortOrderDirection;
+import travel_20190322.country.domain.BaseCountry;
+import travel_20190322.country.service.CountryService;
+import travel_20190322.order.domain.Order;
+import travel_20190322.order.search.OrderSearchCondition;
+import travel_20190322.order.service.OrderService;
+import travel_20190322.reporting.ExportData;
+import travel_20190322.reporting.impl.ExportDataToTxtFile;
+import travel_20190322.storage.loadinitialdata.StorageInitor;
+import travel_20190322.user.domain.SimpleUser;
+import travel_20190322.user.domain.User;
+import travel_20190322.user.domain.UserType;
+import travel_20190322.user.domain.VipUser;
+import travel_20190322.user.service.UserService;
 
 import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
-import static travel_20190319.storage.Storage.cities;
-import static travel_20190319.storage.Storage.orders;
+import static travel_20190322.storage.Storage.cities;
+import static travel_20190322.storage.Storage.orders;
 
 
 public class TravelDemo {
@@ -44,7 +45,7 @@ public class TravelDemo {
         StorageInitor storageInitor = new StorageInitor();
         try {
             storageInitor.initCountryStorageFromFile(countryService,
-                            "resources/countries.xml", StorageInitor.DataSourceType.XML_FILE);
+                    "resources/countries.xml", StorageInitor.DataSourceType.XML_FILE);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -53,17 +54,37 @@ public class TravelDemo {
         countryService.printAll();
 
 
-        createNewOrder("Ivan", "Ivanov", UserType.SIMPLE_USER, "444", "12547",
-                500.0, "USA", Arrays.asList("New-York", "Los-Angeles"));
+        createNewOrder("Masha", "Ivanov", UserType.SIMPLE_USER, "444", "12547",
+                100.0, "USA", Arrays.asList("New-York", "Chicago", "Los-Angeles"));
+
+        createNewOrder("Ivan", "Ivanova", UserType.SIMPLE_USER, "555", "0014",
+                200.0, "Ukraine", Arrays.asList("Kiev", "Livov", "Odessa"));
 
         createNewOrder("Masha", "Ivanova", UserType.SIMPLE_USER, "555", "0014",
-                875.50, "Ukraine", Arrays.asList("Kiev", "Livov", "Odessa"));
+                300.0, "Ukraine", Arrays.asList("Kiev", "Livov", "Odessa"));
 
-        // no city "Melburn" into cities storage -- exception
+        createNewOrder("Agent007", "Ivanova", UserType.SIMPLE_USER, "555", "0014",
+                400.0, "Ukraine", Arrays.asList("Kiev", "Livov", "Odessa"));
+
+        createNewOrder("Vera", "Ivanova", UserType.SIMPLE_USER, "555", "0014",
+                500.0, "Ukraine", Arrays.asList("Kiev", "Livov", "Odessa"));
+
         createNewOrder("Denis", "Ivanova", UserType.VIP_USER, "777", "789",
-                150000.0, "USA", Arrays.asList("Melburn"));
+                600.0, "USA", Arrays.asList("Los-Angeles"));
 
-        OrderSearchCondition orderSearchCondition = new OrderSearchCondition("Ukraine", SortType.DESC);
+        createNewOrder("Denis", "Ivanova", UserType.VIP_USER, "777", "789",
+                700.0, "USA", Arrays.asList("Los-Angeles"));
+
+        createNewOrder("Denis", "Ivanova", UserType.VIP_USER, "777", "789",
+                800.0, "USA", Arrays.asList("Los-Angeles"));
+
+        createNewOrder("Denis", "Ivanova", UserType.VIP_USER, "777", "789",
+                900.0, "USA", Arrays.asList("Los-Angeles"));
+
+        createNewOrder("Denis", "Ivanova", UserType.VIP_USER, "777", "789",
+                1000.0, "USA", Arrays.asList("Los-Angeles"));
+
+        OrderSearchCondition orderSearchCondition = new OrderSearchCondition("Ukraine", SortOrderDirection.ASC);
         List<Order> foundOrders = orderService.findByCondition(orderSearchCondition);
 
         for (Order order : foundOrders)
@@ -77,15 +98,15 @@ public class TravelDemo {
         }
 
         try {
-            cityService.deleteByEntity(cities.get(0));
-        } catch (NeedToCancelOrderException e) {
-            for (Order cancelledOrder : e.getCancelledOrders()) {
-                callUser(cancelledOrder.getUser().getFirstName(), cancelledOrder.getUser().getPhoneNumber());
-            }
+            cityService.deleteByEntity(cities.get(1));
+        } catch (CannotDeleteCityException e) {
+            System.out.println(e.getMessage());
         }
 
         countryService.printAll();
         cityService.printAll();
+        System.out.println("---------------------------\r\n");
+        orderService.printAll();
     }
 
     private static void createNewCity(String cityName) {
@@ -135,6 +156,7 @@ public class TravelDemo {
         */
 
         List<BaseCountry> orderingCountry = new ArrayList<>();
+        /*
         switch(countryService.findByName(countryName).getDiscriminator()) {
             case HOT:
                 orderingCountry.add(new HotCountry(countryName));
@@ -145,7 +167,29 @@ public class TravelDemo {
         }
         for(String cityName : citiesNames) {
             orderingCountry.get(0).getCities().add(new City(cityName));
+        }*/
+        orderingCountry.add(new BaseCountry(countryName));
+        orderingCountry.get(0).setId(countryService.findByName(orderingCountry.get(0).getName()).getId());
+
+        for(String s : citiesNames) {
+            orderingCountry.get(0).getCities().add(new City(s));
         }
+        for(City city : orderingCountry.get(0).getCities()) {
+            city.setId(cityService.findByName(city.getName()).getId());
+        }
+
+        //orderingCountry.add(countryService.findByName(countryName));
+        //for (String str : citiesNames) {
+        //    orderingCountry.get(0).getCities().add(cityService.findByName(str));
+        //}
+
+        /*Iterator<City> iter = orderingCountry.get(0).getCities().iterator();
+        while (iter.hasNext()) {
+            City city = iter.next();
+            if (!citiesNames.contains(city.getName())) {
+                iter.remove();
+            }
+        }*/
 
         Order order = new Order(user, price, orderingCountry);
         orderService.add(order);
