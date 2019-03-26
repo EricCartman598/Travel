@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+  <xs:element name="init-data">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="countries">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="country" type="country" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:complexType name="country">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="language" type="xs:string" minOccurs="0"/>
+      <xs:element name="cities" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="city" type="city" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="telephoneCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="isPolarNight" type="xs:string" minOccurs="0"/>
+      <xs:element name="hotestMonth" type="xs:string" minOccurs="0"/>
+      <xs:element name="averageTemperature" type="xs:string" minOccurs="0"/>
+
+    </xs:sequence>
+    <xs:attribute name="discriminator" type="discriminator"/>
+  </xs:complexType>
+
+  <xs:complexType name="city">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="population" type="xs:int"/>
+      <xs:element name="isCapital" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="discriminator">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="COLD"/>
+      <xs:enumeration value="HOT"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+
