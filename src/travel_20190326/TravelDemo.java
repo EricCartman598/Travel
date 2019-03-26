@@ -16,6 +16,7 @@ import travel_20190326.order.service.OrderService;
 import travel_20190326.reporting.ExportData;
 import travel_20190326.reporting.impl.ExportDataToTxtFile;
 import travel_20190326.storage.loadinitialdata.StorageInitor;
+import travel_20190326.storage.loadinitialdata.impl.MultiThreadReader;
 import travel_20190326.user.domain.SimpleUser;
 import travel_20190326.user.domain.User;
 import travel_20190326.user.domain.UserType;
@@ -42,10 +43,15 @@ public class TravelDemo {
 
     public static void main(String[] args) {
 
-        StorageInitor storageInitor = new StorageInitor();
+        MultiThreadReader reader = new MultiThreadReader();
+        reader.getDataFromFiles("resources/countries_part1.xml", "resources/countries_part2.xml");
+
+        System.out.println("ok");
+
+        StorageInitor storageInitor = new StorageInitor(true);
         try {
             storageInitor.initCountryStorageFromFile(countryService,
-                    "resources/countries.xml", StorageInitor.DataSourceType.XML_FILE_JAXB);
+                    "resources/countries.xml", StorageInitor.DataSourceType.XML_FILE);
         } catch (Exception e) {
             e.printStackTrace();
         }

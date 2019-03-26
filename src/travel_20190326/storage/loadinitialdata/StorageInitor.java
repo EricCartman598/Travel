@@ -5,36 +5,45 @@ import travel_20190326.country.service.CountryService;
 import travel_20190326.storage.loadinitialdata.impl.InitMemoryListCountryStorageFromTextFile;
 import travel_20190326.storage.loadinitialdata.impl.InitMemoryListCountryStorageFromXmlFile;
 import travel_20190326.storage.loadinitialdata.impl.InitMemoryListCountryStorageFromXmlJAXB;
+import travel_20190326.storage.loadinitialdata.impl.ThreadInitData;
 
 import java.util.List;
 
 public class StorageInitor {
 
+    private boolean useJAXB;
+
+    public StorageInitor(boolean useJAXB) {
+        this.useJAXB = useJAXB;
+    }
+
     public enum DataSourceType {
         TXT_FILE,
         XML_FILE,
-        XML_FILE_JAXB,
         JSON_FILE
     }
 
     public void initCountryStorageFromFile(CountryService countryService, String filePath, DataSourceType sourceType) throws Exception {
         ImportDataFromFile<List<BaseCountry>> importer = null;
-        switch(sourceType) {
-            case TXT_FILE:
-                importer = new InitMemoryListCountryStorageFromTextFile();
-                break;
-            case XML_FILE:
-                importer = new InitMemoryListCountryStorageFromXmlFile();
-                break;
-            case XML_FILE_JAXB:
-                importer = new InitMemoryListCountryStorageFromXmlJAXB();
-                break;
+        if (useJAXB)
+            importer = new InitMemoryListCountryStorageFromXmlJAXB();
+        else {
+            switch (sourceType) {
+                case TXT_FILE:
+                    importer = new InitMemoryListCountryStorageFromTextFile();
+                    break;
+                case XML_FILE:
+                    importer = new InitMemoryListCountryStorageFromXmlFile();
+                    break;
+            }
         }
 
-        if(importer != null) {
+        if (importer != null) {
             List<BaseCountry> importedCountries = importer.getDataFromFile(filePath);
-            for(BaseCountry country : importedCountries)
-            countryService.add(country);
+            for (BaseCountry country : importedCountries)
+                countryService.add(country);
         }
     }
 }
+
+
