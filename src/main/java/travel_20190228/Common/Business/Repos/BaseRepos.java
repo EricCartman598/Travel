@@ -1,6 +1,6 @@
-package Travel_20190228.Common.Business.Repos;
+package main.java.travel_20190228.Common.Business.Repos;
 
-import Travel_20190228.Common.Business.Domain.SequenceGenerator;
+import main.java.travel_20190228.Common.Business.Domain.SequenceGenerator;
 
 public interface BaseRepos extends SequenceGenerator {
 

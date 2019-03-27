@@ -1,4 +1,4 @@
-package Travel_20190228.Common.Business.Application;
+package main.java.travel_20190228.Common.Business.Application;
 
 public enum StorageType {
     MEMORY_ARRAY,

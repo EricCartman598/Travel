@@ -3,23 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190303.Country.Service.Impl;
+package main.java.travel_20190303.Country.Service.Impl;
 
 
-import Travel_20190303.City.Domain.City;
-import Travel_20190303.City.Repos.CityRepos;
-import Travel_20190303.City.Repos.Impl.CityMemoryListRepos;
-import Travel_20190303.Country.Domain.Country;
-import Travel_20190303.Country.Repos.CountryRepos;
-import Travel_20190303.Country.Repos.Impl.CountryMemoryListRepos;
-import Travel_20190303.Country.Search.CountrySearchCondition;
-import Travel_20190303.Country.Service.CountryService;
-import Travel_20190303.Storage.Storage;
+import main.java.travel_20190303.City.Domain.City;
+import main.java.travel_20190303.City.Repos.CityRepos;
+import main.java.travel_20190303.City.Repos.Impl.CityMemoryListRepos;
+import main.java.travel_20190303.Country.Domain.Country;
+import main.java.travel_20190303.Country.Repos.CountryRepos;
+import main.java.travel_20190303.Country.Repos.Impl.CountryMemoryListRepos;
+import main.java.travel_20190303.Country.Search.CountrySearchCondition;
+import main.java.travel_20190303.Country.Service.CountryService;
+import main.java.travel_20190303.Storage.Storage;
 
 import java.util.List;
 
-import static Travel_20190303.Storage.Storage.cities;
-import static Travel_20190303.Storage.Storage.countries;
+import static main.java.travel_20190303.Storage.Storage.cities;
+import static main.java.travel_20190303.Storage.Storage.countries;
 
 
 /**

@@ -1,8 +1,8 @@
-package Travel_20190303.City.Service;
+package main.java.travel_20190303.City.Service;
 
-import Travel_20190303.Common.Business.Service.BaseService;
-import Travel_20190303.City.Domain.City;
-import Travel_20190303.City.Search.CitySearchCondition;
+import main.java.travel_20190303.Common.Business.Service.BaseService;
+import main.java.travel_20190303.City.Domain.City;
+import main.java.travel_20190303.City.Search.CitySearchCondition;
 
 
 import java.util.List;

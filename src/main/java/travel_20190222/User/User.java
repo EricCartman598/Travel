@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190222.User;
+package main.java.travel_20190222.User;
 
 
-import Travel_20190222.Order.Order;
+import main.java.travel_20190222.Order.Order;
 import java.util.List;
 
 /**
@@ -85,15 +85,15 @@ public class User {
     
     
    /*
-    boolean makeOrder(List<Travel_20190222.Country> countries) {
+    boolean makeOrder(List<main.java.travel_20190222.Country> countries) {
         return true;
     }
 
-    boolean changeOrder(Travel_20190222.order newOrder, Travel_20190222.order oldOrder) {
+    boolean changeOrder(main.java.travel_20190222.order newOrder, main.java.travel_20190222.order oldOrder) {
         return true;
     }
 
-    boolean cancelOrder(Travel_20190222.order cancelledOrder) {
+    boolean cancelOrder(main.java.travel_20190222.order cancelledOrder) {
         return true;
     } */   
     

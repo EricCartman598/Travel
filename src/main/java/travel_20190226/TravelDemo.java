@@ -1,4 +1,4 @@
-package Travel_20190226;
+package main.java.travel_20190226;
 
 public class TravelDemo {
 

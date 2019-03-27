@@ -1,4 +1,4 @@
-package Travel_20190313.Common.Business.Service;
+package main.java.travel_20190313.Common.Business.Service;
 
 public enum SortType {
     ASC,

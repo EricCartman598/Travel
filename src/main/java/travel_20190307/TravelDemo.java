@@ -1,22 +1,22 @@
-package Travel_20190307;
+package main.java.travel_20190307;
 
 
-import Travel_20190307.City.Domain.City;
-import Travel_20190307.City.Service.CityService;
-import Travel_20190307.Common.Business.Application.ServiceSupplier;
-import Travel_20190307.Common.Business.Application.StorageType;
-import Travel_20190307.Common.Business.Service.SortType;
-import Travel_20190307.Country.Domain.Country;
-import Travel_20190307.Country.Service.CountryService;
-import Travel_20190307.Order.Domain.Order;
-import Travel_20190307.Order.Search.OrderSearchCondition;
-import Travel_20190307.Order.Service.OrderService;
-import Travel_20190307.User.Domain.SimpleUser;
-import Travel_20190307.User.Domain.User;
-import Travel_20190307.User.Domain.UserType;
-import Travel_20190307.User.Domain.VipUser;
-import Travel_20190307.User.Service.UserService;
-import Travel_20190307.City.Repo.Impl.CityMemoryListRepo;
+import main.java.travel_20190307.City.Domain.City;
+import main.java.travel_20190307.City.Service.CityService;
+import main.java.travel_20190307.Common.Business.Application.ServiceSupplier;
+import main.java.travel_20190307.Common.Business.Application.StorageType;
+import main.java.travel_20190307.Common.Business.Service.SortType;
+import main.java.travel_20190307.Country.Domain.Country;
+import main.java.travel_20190307.Country.Service.CountryService;
+import main.java.travel_20190307.Order.Domain.Order;
+import main.java.travel_20190307.Order.Search.OrderSearchCondition;
+import main.java.travel_20190307.Order.Service.OrderService;
+import main.java.travel_20190307.User.Domain.SimpleUser;
+import main.java.travel_20190307.User.Domain.User;
+import main.java.travel_20190307.User.Domain.UserType;
+import main.java.travel_20190307.User.Domain.VipUser;
+import main.java.travel_20190307.User.Service.UserService;
+import main.java.travel_20190307.City.Repo.Impl.CityMemoryListRepo;
 
 import java.util.ArrayList;
 import java.util.Arrays;

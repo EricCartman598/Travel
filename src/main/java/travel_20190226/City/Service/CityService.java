@@ -1,8 +1,8 @@
-package Travel_20190226.City.Service;
+package main.java.travel_20190226.City.Service;
 
-import Travel_20190226.City.Domain.City;
-import Travel_20190226.City.Repos.CityRepos;
-import Travel_20190226.Common.Business.Service.BaseService;
+import main.java.travel_20190226.City.Domain.City;
+import main.java.travel_20190226.City.Repos.CityRepos;
+import main.java.travel_20190226.Common.Business.Service.BaseService;
 
 public interface CityService extends BaseService {
 

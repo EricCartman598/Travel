@@ -1,6 +1,6 @@
-package Travel_20190313.Common.Business.Exceptions;
+package main.java.travel_20190313.Common.Business.Exceptions;
 
-import Travel_20190313.Order.Domain.Order;
+import main.java.travel_20190313.Order.Domain.Order;
 
 import java.util.List;
 

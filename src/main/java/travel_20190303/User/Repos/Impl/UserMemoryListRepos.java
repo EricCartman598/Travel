@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190303.User.Repos.Impl;
+package main.java.travel_20190303.User.Repos.Impl;
 
 
-import Travel_20190303.User.Domain.User;
-import Travel_20190303.User.Repos.UserRepos;
-import Travel_20190303.User.Search.UserSearchCondition;
+import main.java.travel_20190303.User.Domain.User;
+import main.java.travel_20190303.User.Repos.UserRepos;
+import main.java.travel_20190303.User.Search.UserSearchCondition;
 
 import java.util.List;
 
-import static Travel_20190303.Storage.Storage.users;
+import static main.java.travel_20190303.Storage.Storage.users;
 
 /**
  *

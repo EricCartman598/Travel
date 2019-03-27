@@ -1,6 +1,6 @@
-package Travel_20190224;
+package main.java.travel_20190224;
 
-import Travel_20190224.City.City;
+import main.java.travel_20190224.City.City;
 
 public interface CrudInterface {
 

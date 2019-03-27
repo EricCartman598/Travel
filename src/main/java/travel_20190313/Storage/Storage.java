@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190313.Storage;
+package main.java.travel_20190313.Storage;
 
-import Travel_20190313.Country.Domain.Country;
-import Travel_20190313.Order.Domain.Order;
-import Travel_20190313.User.Domain.User;
-import Travel_20190313.City.Domain.City;
+import main.java.travel_20190313.Country.Domain.Country;
+import main.java.travel_20190313.Order.Domain.Order;
+import main.java.travel_20190313.User.Domain.User;
+import main.java.travel_20190313.City.Domain.City;
 
 import java.util.ArrayList;
 import java.util.List;

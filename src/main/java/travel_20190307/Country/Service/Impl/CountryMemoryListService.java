@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190307.Country.Service.Impl;
+package main.java.travel_20190307.Country.Service.Impl;
 
 
 
-import Travel_20190307.City.Domain.City;
-import Travel_20190307.City.Repo.CityRepo;
-import Travel_20190307.Country.Domain.Country;
-import Travel_20190307.Country.Repo.CountryRepo;
-import Travel_20190307.Country.Search.CountrySearchCondition;
-import Travel_20190307.Country.Service.CountryService;
+import main.java.travel_20190307.City.Domain.City;
+import main.java.travel_20190307.City.Repo.CityRepo;
+import main.java.travel_20190307.Country.Domain.Country;
+import main.java.travel_20190307.Country.Repo.CountryRepo;
+import main.java.travel_20190307.Country.Search.CountrySearchCondition;
+import main.java.travel_20190307.Country.Service.CountryService;
 
 import java.util.List;
 
-import static Travel_20190307.Storage.Storage.cities;
-import static Travel_20190307.Storage.Storage.countries;
+import static main.java.travel_20190307.Storage.Storage.cities;
+import static main.java.travel_20190307.Storage.Storage.countries;
 
 
 /**

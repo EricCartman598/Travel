@@ -1,8 +1,8 @@
-package Travel_20190228.Order.Repos;
+package main.java.travel_20190228.Order.Repos;
 
-import Travel_20190228.Common.Business.Repos.BaseRepos;
-import Travel_20190228.Order.Domain.Order;
-import Travel_20190228.Order.Search.OrderSearchCondition;
+import main.java.travel_20190228.Common.Business.Repos.BaseRepos;
+import main.java.travel_20190228.Order.Domain.Order;
+import main.java.travel_20190228.Order.Search.OrderSearchCondition;
 
 import java.util.List;
 

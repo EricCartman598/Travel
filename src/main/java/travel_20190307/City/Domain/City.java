@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190307.City.Domain;
+package main.java.travel_20190307.City.Domain;
 
-import Travel_20190307.Common.Business.Domain.BaseDomain;
+import main.java.travel_20190307.Common.Business.Domain.BaseDomain;
 
 import java.util.Objects;
 

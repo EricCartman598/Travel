@@ -1,4 +1,4 @@
-package Travel_20190307.Common.Solution.Repo;
+package main.java.travel_20190307.Common.Solution.Repo;
 
 public interface BaseRepo<T, ID> {
 

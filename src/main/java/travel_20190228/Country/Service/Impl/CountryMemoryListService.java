@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190228.Country.Service.Impl;
+package main.java.travel_20190228.Country.Service.Impl;
 
-import Travel_20190228.City.Domain.City;
-import Travel_20190228.City.Repos.CityRepos;
-import Travel_20190228.City.Repos.Impl.CityMemoryListRepos;
-import Travel_20190228.Country.Domain.Country;
-import Travel_20190228.Country.Repos.CountryRepos;
-import Travel_20190228.Country.Repos.Impl.CountryMemoryListRepos;
-import Travel_20190228.Country.Search.CountrySearchCondition;
-import Travel_20190228.Country.Service.CountryService;
+import main.java.travel_20190228.City.Domain.City;
+import main.java.travel_20190228.City.Repos.CityRepos;
+import main.java.travel_20190228.City.Repos.Impl.CityMemoryListRepos;
+import main.java.travel_20190228.Country.Domain.Country;
+import main.java.travel_20190228.Country.Repos.CountryRepos;
+import main.java.travel_20190228.Country.Repos.Impl.CountryMemoryListRepos;
+import main.java.travel_20190228.Country.Search.CountrySearchCondition;
+import main.java.travel_20190228.Country.Service.CountryService;
 
 import java.util.List;
 

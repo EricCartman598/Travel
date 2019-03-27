@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190313.User.Service.Impl;
+package main.java.travel_20190313.User.Service.Impl;
 
 
-import Travel_20190313.User.Domain.User;
-import Travel_20190313.User.Repo.UserRepo;
-import Travel_20190313.User.Search.UserSearchCondition;
-import Travel_20190313.User.Service.UserService;
+import main.java.travel_20190313.User.Domain.User;
+import main.java.travel_20190313.User.Repo.UserRepo;
+import main.java.travel_20190313.User.Search.UserSearchCondition;
+import main.java.travel_20190313.User.Service.UserService;
 
 import java.util.List;
 

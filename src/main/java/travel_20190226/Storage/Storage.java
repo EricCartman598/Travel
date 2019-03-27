@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190226.Storage;
+package main.java.travel_20190226.Storage;
 
-import Travel_20190226.City.Domain.City;
-import Travel_20190226.Country.Country;
-import Travel_20190226.Order.Order;
-import Travel_20190226.User.User;
+import main.java.travel_20190226.City.Domain.City;
+import main.java.travel_20190226.Country.Country;
+import main.java.travel_20190226.Order.Order;
+import main.java.travel_20190226.User.User;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ import java.util.List;
  * @author Виталий
  */
 public class Storage {
-    public static List<Country> countries;// = new List<Travel_20190222.Country>() {
+    public static List<Country> countries;// = new List<travel_20190222.Country>() {
     public static List<City> cities;
     public static List<Order> orders;
     public static List<User> users;

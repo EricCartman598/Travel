@@ -1,6 +1,6 @@
-package Travel_20190228.Country.Search;
+package main.java.travel_20190228.Country.Search;
 
-import Travel_20190228.Common.Business.Search.BaseSearchCondition;
+import main.java.travel_20190228.Common.Business.Search.BaseSearchCondition;
 
 public class CountrySearchCondition extends BaseSearchCondition {
 }

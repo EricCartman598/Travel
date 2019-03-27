@@ -3,24 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190303.Order.Repos.Impl;
+package main.java.travel_20190303.Order.Repos.Impl;
 
-import Travel_20190303.City.Domain.City;
-import Travel_20190303.Common.Business.Service.SortType;
-import Travel_20190303.Country.Domain.Country;
-import Travel_20190303.Order.Domain.Order;
-import Travel_20190303.Order.Repos.OrderRepos;
-import Travel_20190303.Order.Search.OrderSearchCondition;
-import Travel_20190303.Storage.Storage;
-import Travel_20190303.User.Domain.User;
-import Travel_20190303.User.Domain.UserType;
+import main.java.travel_20190303.City.Domain.City;
+import main.java.travel_20190303.Common.Business.Service.SortType;
+import main.java.travel_20190303.Country.Domain.Country;
+import main.java.travel_20190303.Order.Domain.Order;
+import main.java.travel_20190303.Order.Repos.OrderRepos;
+import main.java.travel_20190303.Order.Search.OrderSearchCondition;
+import main.java.travel_20190303.Storage.Storage;
+import main.java.travel_20190303.User.Domain.User;
+import main.java.travel_20190303.User.Domain.UserType;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import static Travel_20190303.Storage.Storage.*;
+import static main.java.travel_20190303.Storage.Storage.*;
 
 
 /**

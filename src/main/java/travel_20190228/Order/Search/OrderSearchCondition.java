@@ -1,8 +1,8 @@
-package Travel_20190228.Order.Search;
+package main.java.travel_20190228.Order.Search;
 
-import Travel_20190228.Common.Business.Search.BaseSearchCondition;
-import Travel_20190228.Country.Domain.Country;
-import Travel_20190228.User.Domain.UserType;
+import main.java.travel_20190228.Common.Business.Search.BaseSearchCondition;
+import main.java.travel_20190228.Country.Domain.Country;
+import main.java.travel_20190228.User.Domain.UserType;
 
 public class OrderSearchCondition extends BaseSearchCondition {
 

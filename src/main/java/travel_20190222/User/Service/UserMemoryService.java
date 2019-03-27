@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190222.User.Service;
+package main.java.travel_20190222.User.Service;
 
 
-import Travel_20190222.Order.Repos.OrderMemoryRepos;
-import Travel_20190222.User.Repos.UserMemoryRepos;
-import Travel_20190222.User.User;
+import main.java.travel_20190222.Order.Repos.OrderMemoryRepos;
+import main.java.travel_20190222.User.Repos.UserMemoryRepos;
+import main.java.travel_20190222.User.User;
 
 /**
  *

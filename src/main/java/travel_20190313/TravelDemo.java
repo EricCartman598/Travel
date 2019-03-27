@@ -1,26 +1,26 @@
-package Travel_20190313;
+package main.java.travel_20190313;
 
 
-import Travel_20190313.City.Domain.City;
-import Travel_20190313.City.Repo.Impl.CityMemoryListRepo;
-import Travel_20190313.City.Service.CityService;
-import Travel_20190313.Common.Business.Application.ServiceSupplier;
-import Travel_20190313.Common.Business.Application.StorageType;
-import Travel_20190313.Common.Business.Exceptions.BasicTravelCheckedException;
-import Travel_20190313.Common.Business.Exceptions.NeedToCancelOrderException;
-import Travel_20190313.Common.Business.Exceptions.NoSuchCityException;
-import Travel_20190313.Common.Business.Exceptions.NoSuchCountryException;
-import Travel_20190313.Common.Business.Service.SortType;
-import Travel_20190313.Country.Domain.Country;
-import Travel_20190313.Country.Service.CountryService;
-import Travel_20190313.Order.Domain.Order;
-import Travel_20190313.Order.Search.OrderSearchCondition;
-import Travel_20190313.Order.Service.OrderService;
-import Travel_20190313.User.Domain.SimpleUser;
-import Travel_20190313.User.Domain.User;
-import Travel_20190313.User.Domain.UserType;
-import Travel_20190313.User.Domain.VipUser;
-import Travel_20190313.User.Service.UserService;
+import main.java.travel_20190313.City.Domain.City;
+import main.java.travel_20190313.City.Repo.Impl.CityMemoryListRepo;
+import main.java.travel_20190313.City.Service.CityService;
+import main.java.travel_20190313.Common.Business.Application.ServiceSupplier;
+import main.java.travel_20190313.Common.Business.Application.StorageType;
+import main.java.travel_20190313.Common.Business.Exceptions.BasicTravelCheckedException;
+import main.java.travel_20190313.Common.Business.Exceptions.NeedToCancelOrderException;
+import main.java.travel_20190313.Common.Business.Exceptions.NoSuchCityException;
+import main.java.travel_20190313.Common.Business.Exceptions.NoSuchCountryException;
+import main.java.travel_20190313.Common.Business.Service.SortType;
+import main.java.travel_20190313.Country.Domain.Country;
+import main.java.travel_20190313.Country.Service.CountryService;
+import main.java.travel_20190313.Order.Domain.Order;
+import main.java.travel_20190313.Order.Search.OrderSearchCondition;
+import main.java.travel_20190313.Order.Service.OrderService;
+import main.java.travel_20190313.User.Domain.SimpleUser;
+import main.java.travel_20190313.User.Domain.User;
+import main.java.travel_20190313.User.Domain.UserType;
+import main.java.travel_20190313.User.Domain.VipUser;
+import main.java.travel_20190313.User.Service.UserService;
 
 import java.util.ArrayList;
 import java.util.Arrays;

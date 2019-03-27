@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190224.City.Service;
+package main.java.travel_20190224.City.Service;
 
-import Travel_20190224.City.City;
-import Travel_20190224.City.Repos.CityMemoryRepos;
+import main.java.travel_20190224.City.City;
+import main.java.travel_20190224.City.Repos.CityMemoryRepos;
 
 
 /**

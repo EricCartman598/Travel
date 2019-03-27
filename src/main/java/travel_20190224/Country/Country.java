@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190224.Country;
+package main.java.travel_20190224.Country;
 
 
 
-import Travel_20190224.City.City;
+import main.java.travel_20190224.City.City;
 
 import java.util.List;
 

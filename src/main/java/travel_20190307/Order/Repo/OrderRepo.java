@@ -1,10 +1,10 @@
-package Travel_20190307.Order.Repo;
+package main.java.travel_20190307.Order.Repo;
 
 
 
-import Travel_20190307.Common.Solution.Repo.BaseRepo;
-import Travel_20190307.Order.Domain.Order;
-import Travel_20190307.Order.Search.OrderSearchCondition;
+import main.java.travel_20190307.Common.Solution.Repo.BaseRepo;
+import main.java.travel_20190307.Order.Domain.Order;
+import main.java.travel_20190307.Order.Search.OrderSearchCondition;
 
 import java.util.List;
 

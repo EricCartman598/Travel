@@ -1,13 +1,13 @@
-package Travel_20190228.City.Repos.Impl;
+package main.java.travel_20190228.City.Repos.Impl;
 
-import Travel_20190228.City.Domain.City;
-import Travel_20190228.City.Repos.CityRepos;
-import Travel_20190228.City.Search.CitySearchCondition;
+import main.java.travel_20190228.City.Domain.City;
+import main.java.travel_20190228.City.Repos.CityRepos;
+import main.java.travel_20190228.City.Search.CitySearchCondition;
 
 import java.util.List;
 
-import static Travel_20190228.Storage.Storage.cities;
-import static Travel_20190228.Storage.Storage.countries;
+import static main.java.travel_20190228.Storage.Storage.cities;
+import static main.java.travel_20190228.Storage.Storage.countries;
 
 public class CityMemoryListRepos implements CityRepos {
 

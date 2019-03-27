@@ -1,6 +1,6 @@
-package Travel_20190307.City.Search;
+package main.java.travel_20190307.City.Search;
 
-import Travel_20190307.Common.Business.Search.BaseSearchCondition;
+import main.java.travel_20190307.Common.Business.Search.BaseSearchCondition;
 
 public class CitySearchCondition extends BaseSearchCondition {
 }

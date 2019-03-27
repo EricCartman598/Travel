@@ -1,4 +1,4 @@
-package Travel_20190303;
+package main.java.travel_20190303;
 
 public interface DataManagement {
 

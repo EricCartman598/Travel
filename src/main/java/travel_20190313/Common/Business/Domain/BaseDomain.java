@@ -1,4 +1,4 @@
-package Travel_20190313.Common.Business.Domain;
+package main.java.travel_20190313.Common.Business.Domain;
 
 public abstract class BaseDomain<T> {
     protected T id;

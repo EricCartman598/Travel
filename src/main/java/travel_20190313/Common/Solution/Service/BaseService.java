@@ -1,8 +1,8 @@
-package Travel_20190313.Common.Solution.Service;
+package main.java.travel_20190313.Common.Solution.Service;
 
-import Travel_20190313.Common.Business.Exceptions.NeedToCancelOrderException;
-import Travel_20190313.Common.Business.Exceptions.NoSuchCityException;
-import Travel_20190313.Common.Business.Exceptions.NoSuchCountryException;
+import main.java.travel_20190313.Common.Business.Exceptions.NeedToCancelOrderException;
+import main.java.travel_20190313.Common.Business.Exceptions.NoSuchCityException;
+import main.java.travel_20190313.Common.Business.Exceptions.NoSuchCountryException;
 
 public interface BaseService<T, ID> {
 

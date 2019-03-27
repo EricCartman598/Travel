@@ -1,4 +1,4 @@
-package Travel_20190313.Common.Business.Exceptions;
+package main.java.travel_20190313.Common.Business.Exceptions;
 
 public enum ErrorCode {
     NO_SUCH_COUNTRY(20),

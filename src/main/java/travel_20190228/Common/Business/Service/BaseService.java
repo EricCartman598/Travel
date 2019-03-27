@@ -1,4 +1,4 @@
-package Travel_20190228.Common.Business.Service;
+package main.java.travel_20190228.Common.Business.Service;
 
 public interface BaseService {
 

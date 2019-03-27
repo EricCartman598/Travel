@@ -1,12 +1,12 @@
-package Travel_20190313.Order.Repo;
+package main.java.travel_20190313.Order.Repo;
 
 
 
-import Travel_20190313.City.Domain.City;
-import Travel_20190313.Common.Solution.Repo.BaseRepo;
-import Travel_20190313.Country.Domain.Country;
-import Travel_20190313.Order.Domain.Order;
-import Travel_20190313.Order.Search.OrderSearchCondition;
+import main.java.travel_20190313.City.Domain.City;
+import main.java.travel_20190313.Common.Solution.Repo.BaseRepo;
+import main.java.travel_20190313.Country.Domain.Country;
+import main.java.travel_20190313.Order.Domain.Order;
+import main.java.travel_20190313.Order.Search.OrderSearchCondition;
 
 import java.util.List;
 

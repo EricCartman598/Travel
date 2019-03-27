@@ -1,8 +1,8 @@
-package Travel_20190313.City.Repo;
+package main.java.travel_20190313.City.Repo;
 
-import Travel_20190313.City.Domain.City;
-import Travel_20190313.City.Search.CitySearchCondition;
-import Travel_20190313.Common.Solution.Repo.BaseRepo;
+import main.java.travel_20190313.City.Domain.City;
+import main.java.travel_20190313.City.Search.CitySearchCondition;
+import main.java.travel_20190313.Common.Solution.Repo.BaseRepo;
 
 import java.util.List;
 

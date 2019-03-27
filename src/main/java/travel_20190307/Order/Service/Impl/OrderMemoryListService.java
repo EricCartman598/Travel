@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190307.Order.Service.Impl;
+package main.java.travel_20190307.Order.Service.Impl;
 
 
 
-import Travel_20190307.Order.Domain.Order;
-import Travel_20190307.Order.Repo.OrderRepo;
-import Travel_20190307.Order.Search.OrderSearchCondition;
-import Travel_20190307.Order.Service.OrderService;
+import main.java.travel_20190307.Order.Domain.Order;
+import main.java.travel_20190307.Order.Repo.OrderRepo;
+import main.java.travel_20190307.Order.Search.OrderSearchCondition;
+import main.java.travel_20190307.Order.Service.OrderService;
 
 import java.util.List;
 

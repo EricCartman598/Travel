@@ -1,4 +1,4 @@
-package Travel_20190307.Common.Solution.Service;
+package main.java.travel_20190307.Common.Solution.Service;
 
 public interface BaseService<T, ID> {
 

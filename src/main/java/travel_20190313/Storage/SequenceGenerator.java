@@ -1,4 +1,4 @@
-package Travel_20190313.Storage;
+package main.java.travel_20190313.Storage;
 
 public final class SequenceGenerator {
 

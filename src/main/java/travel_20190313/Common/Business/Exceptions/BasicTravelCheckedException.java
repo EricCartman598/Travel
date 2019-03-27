@@ -1,4 +1,4 @@
-package Travel_20190313.Common.Business.Exceptions;
+package main.java.travel_20190313.Common.Business.Exceptions;
 
 public class BasicTravelCheckedException extends Exception {
     protected ErrorCode errorCode;

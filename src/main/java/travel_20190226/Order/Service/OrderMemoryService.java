@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190226.Order.Service;
+package main.java.travel_20190226.Order.Service;
 
 
-import Travel_20190226.Country.Country;
-import Travel_20190226.Country.Service.CountryMemoryService;
-import Travel_20190226.Order.Order;
-import Travel_20190226.Order.Repos.OrderMemoryRepos;
+import main.java.travel_20190226.Country.Country;
+import main.java.travel_20190226.Country.Service.CountryMemoryService;
+import main.java.travel_20190226.Order.Order;
+import main.java.travel_20190226.Order.Repos.OrderMemoryRepos;
 
 /**
  *

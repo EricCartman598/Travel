@@ -1,4 +1,4 @@
-package Travel_20190313.User.Domain;
+package main.java.travel_20190313.User.Domain;
 
 public enum UserBonus {
     GIRLS,

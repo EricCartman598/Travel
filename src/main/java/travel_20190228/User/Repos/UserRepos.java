@@ -1,8 +1,8 @@
-package Travel_20190228.User.Repos;
+package main.java.travel_20190228.User.Repos;
 
-import Travel_20190228.Common.Business.Repos.BaseRepos;
-import Travel_20190228.User.Domain.User;
-import Travel_20190228.User.Search.UserSearchCondition;
+import main.java.travel_20190228.Common.Business.Repos.BaseRepos;
+import main.java.travel_20190228.User.Domain.User;
+import main.java.travel_20190228.User.Search.UserSearchCondition;
 
 import java.util.List;
 

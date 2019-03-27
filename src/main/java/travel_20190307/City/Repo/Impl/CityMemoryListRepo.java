@@ -1,13 +1,13 @@
-package Travel_20190307.City.Repo.Impl;
+package main.java.travel_20190307.City.Repo.Impl;
 
-import Travel_20190307.City.Domain.City;
-import Travel_20190307.City.Repo.CityRepo;
-import Travel_20190307.City.Search.CitySearchCondition;
-import Travel_20190307.Storage.SequenceGenerator;
+import main.java.travel_20190307.City.Domain.City;
+import main.java.travel_20190307.City.Repo.CityRepo;
+import main.java.travel_20190307.City.Search.CitySearchCondition;
+import main.java.travel_20190307.Storage.SequenceGenerator;
 
 import java.util.List;
 
-import static Travel_20190307.Storage.Storage.cities;
+import static main.java.travel_20190307.Storage.Storage.cities;
 
 public class CityMemoryListRepo implements CityRepo {
 

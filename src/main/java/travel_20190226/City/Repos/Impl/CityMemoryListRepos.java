@@ -1,9 +1,9 @@
-package Travel_20190226.City.Repos.Impl;
+package main.java.travel_20190226.City.Repos.Impl;
 
-import Travel_20190226.City.Domain.City;
-import Travel_20190226.City.Repos.CityRepos;
+import main.java.travel_20190226.City.Domain.City;
+import main.java.travel_20190226.City.Repos.CityRepos;
 
-import static Travel_20190226.Storage.Storage.cities;
+import static main.java.travel_20190226.Storage.Storage.cities;
 
 public class CityMemoryListRepos implements CityRepos {
 

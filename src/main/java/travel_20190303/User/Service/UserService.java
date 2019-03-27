@@ -1,8 +1,8 @@
-package Travel_20190303.User.Service;
+package main.java.travel_20190303.User.Service;
 
-import Travel_20190303.User.Search.UserSearchCondition;
-import Travel_20190303.Common.Business.Service.BaseService;
-import Travel_20190303.User.Domain.User;
+import main.java.travel_20190303.User.Search.UserSearchCondition;
+import main.java.travel_20190303.Common.Business.Service.BaseService;
+import main.java.travel_20190303.User.Domain.User;
 
 
 import java.util.List;

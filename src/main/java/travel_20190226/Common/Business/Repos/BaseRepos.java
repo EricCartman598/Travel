@@ -1,4 +1,4 @@
-package Travel_20190226.Common.Business.Repos;
+package main.java.travel_20190226.Common.Business.Repos;
 
 public interface BaseRepos {
 

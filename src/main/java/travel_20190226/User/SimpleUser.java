@@ -1,6 +1,6 @@
-package Travel_20190226.User;
+package main.java.travel_20190226.User;
 
-import Travel_20190226.Order.Order;
+import main.java.travel_20190226.Order.Order;
 
 import java.util.List;
 

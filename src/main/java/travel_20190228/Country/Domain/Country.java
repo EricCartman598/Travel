@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190228.Country.Domain;
+package main.java.travel_20190228.Country.Domain;
 
 
 
-import Travel_20190228.City.Domain.City;
-import Travel_20190228.Common.Business.Domain.BaseDomain;
+import main.java.travel_20190228.City.Domain.City;
+import main.java.travel_20190228.Common.Business.Domain.BaseDomain;
 
 import java.util.List;
 import java.util.Objects;

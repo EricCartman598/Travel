@@ -1,9 +1,9 @@
-package Travel_20190313.Common.Business.Application;
+package main.java.travel_20190313.Common.Business.Application;
 
-import Travel_20190313.Order.Service.OrderService;
-import Travel_20190313.User.Service.UserService;
-import Travel_20190313.City.Service.CityService;
-import Travel_20190313.Country.Service.CountryService;
+import main.java.travel_20190313.Order.Service.OrderService;
+import main.java.travel_20190313.User.Service.UserService;
+import main.java.travel_20190313.City.Service.CityService;
+import main.java.travel_20190313.Country.Service.CountryService;
 
 
 public interface ServiceFactory {

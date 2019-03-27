@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190313.Order.Service.Impl;
+package main.java.travel_20190313.Order.Service.Impl;
 
 
-import Travel_20190313.City.Domain.City;
-import Travel_20190313.Common.Business.Exceptions.NoSuchCityException;
-import Travel_20190313.Common.Business.Exceptions.NoSuchCountryException;
-import Travel_20190313.Order.Domain.Order;
-import Travel_20190313.Order.Repo.OrderRepo;
-import Travel_20190313.Order.Search.OrderSearchCondition;
-import Travel_20190313.Order.Service.OrderService;
-import Travel_20190313.Country.Domain.Country;
+import main.java.travel_20190313.City.Domain.City;
+import main.java.travel_20190313.Common.Business.Exceptions.NoSuchCityException;
+import main.java.travel_20190313.Common.Business.Exceptions.NoSuchCountryException;
+import main.java.travel_20190313.Order.Domain.Order;
+import main.java.travel_20190313.Order.Repo.OrderRepo;
+import main.java.travel_20190313.Order.Search.OrderSearchCondition;
+import main.java.travel_20190313.Order.Service.OrderService;
+import main.java.travel_20190313.Country.Domain.Country;
 
 import java.util.List;
 
-import static Travel_20190313.Storage.Storage.cities;
-import static Travel_20190313.Storage.Storage.countries;
+import static main.java.travel_20190313.Storage.Storage.cities;
+import static main.java.travel_20190313.Storage.Storage.countries;
 
 /**
  * @author Виталий

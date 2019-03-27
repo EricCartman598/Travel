@@ -1,10 +1,10 @@
-package Travel_20190303.Common.Business.Application;
+package main.java.travel_20190303.Common.Business.Application;
 
-import Travel_20190303.Order.Service.OrderService;
-import Travel_20190303.User.Service.UserService;
-import Travel_20190303.City.Service.CityService;
-import Travel_20190303.Common.Business.Application.Impl.MemoryListServiceFactory;
-import Travel_20190303.Country.Service.CountryService;
+import main.java.travel_20190303.Order.Service.OrderService;
+import main.java.travel_20190303.User.Service.UserService;
+import main.java.travel_20190303.City.Service.CityService;
+import main.java.travel_20190303.Common.Business.Application.Impl.MemoryListServiceFactory;
+import main.java.travel_20190303.Country.Service.CountryService;
 
 
 public final class ServiceSupplier {

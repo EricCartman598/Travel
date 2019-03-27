@@ -1,9 +1,9 @@
-package Travel_20190313.Country.Repo;
+package main.java.travel_20190313.Country.Repo;
 
-import Travel_20190313.City.Domain.City;
-import Travel_20190313.Common.Solution.Repo.BaseRepo;
-import Travel_20190313.Country.Domain.Country;
-import Travel_20190313.Country.Search.CountrySearchCondition;
+import main.java.travel_20190313.City.Domain.City;
+import main.java.travel_20190313.Common.Solution.Repo.BaseRepo;
+import main.java.travel_20190313.Country.Domain.Country;
+import main.java.travel_20190313.Country.Search.CountrySearchCondition;
 
 import java.util.List;
 

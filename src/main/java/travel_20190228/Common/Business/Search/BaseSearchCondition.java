@@ -1,4 +1,4 @@
-package Travel_20190228.Common.Business.Search;
+package main.java.travel_20190228.Common.Business.Search;
 
 public abstract class BaseSearchCondition {
     private Long id;

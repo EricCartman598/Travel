@@ -1,8 +1,8 @@
-package Travel_20190303.Country.Repos;
+package main.java.travel_20190303.Country.Repos;
 
-import Travel_20190303.Common.Business.Repos.BaseRepos;
-import Travel_20190303.Country.Domain.Country;
-import Travel_20190303.Country.Search.CountrySearchCondition;
+import main.java.travel_20190303.Common.Business.Repos.BaseRepos;
+import main.java.travel_20190303.Country.Domain.Country;
+import main.java.travel_20190303.Country.Search.CountrySearchCondition;
 
 import java.util.List;
 

@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190303.Country.Repos.Impl;
+package main.java.travel_20190303.Country.Repos.Impl;
 
-import Travel_20190303.Country.Domain.Country;
-import Travel_20190303.Country.Repos.CountryRepos;
-import Travel_20190303.Country.Search.CountrySearchCondition;
+import main.java.travel_20190303.Country.Domain.Country;
+import main.java.travel_20190303.Country.Repos.CountryRepos;
+import main.java.travel_20190303.Country.Search.CountrySearchCondition;
 
 import java.util.List;
 
-import static Travel_20190303.Storage.Storage.countries;
+import static main.java.travel_20190303.Storage.Storage.countries;
 
 
 /**

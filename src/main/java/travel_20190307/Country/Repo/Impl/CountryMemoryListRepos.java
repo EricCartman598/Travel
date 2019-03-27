@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Travel_20190307.Country.Repo.Impl;
+package main.java.travel_20190307.Country.Repo.Impl;
 
 
-import Travel_20190307.Country.Domain.Country;
-import Travel_20190307.Country.Repo.CountryRepo;
-import Travel_20190307.Country.Search.CountrySearchCondition;
-import Travel_20190307.Storage.SequenceGenerator;
+import main.java.travel_20190307.Country.Domain.Country;
+import main.java.travel_20190307.Country.Repo.CountryRepo;
+import main.java.travel_20190307.Country.Search.CountrySearchCondition;
+import main.java.travel_20190307.Storage.SequenceGenerator;
 
 import java.util.List;
 
-import static Travel_20190307.Storage.Storage.countries;
+import static main.java.travel_20190307.Storage.Storage.countries;
 
 /**
  *
