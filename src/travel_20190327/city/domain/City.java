@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package travel_20190326.city.domain;
+package travel_20190327.city.domain;
 
-import travel_20190326.common.business.domain.BaseDomain;
+import travel_20190327.common.business.domain.BaseDomain;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

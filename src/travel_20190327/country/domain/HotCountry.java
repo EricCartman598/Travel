@@ -1,7 +1,7 @@
-package travel_20190326.country.domain;
+package travel_20190327.country.domain;
 
-import travel_20190326.common.business.domain.Month;
-import travel_20190326.country.domain.BaseCountry;
+import travel_20190327.common.business.domain.Month;
+import travel_20190327.country.domain.BaseCountry;
 
 import javax.xml.bind.annotation.XmlElement;
 

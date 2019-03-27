@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package travel_20190326.country.domain;
+package travel_20190327.country.domain;
 
 
-import travel_20190326.city.domain.City;
-import travel_20190326.common.business.domain.BaseDomain;
-import travel_20190326.country.domain.CountryTemperatureType;
+import travel_20190327.city.domain.City;
+import travel_20190327.common.business.domain.BaseDomain;
+import travel_20190327.country.domain.CountryTemperatureType;
 
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;

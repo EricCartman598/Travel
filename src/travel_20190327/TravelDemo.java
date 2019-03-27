@@ -1,33 +1,35 @@
-package travel_20190326;
+package travel_20190327;
 
 
-import travel_20190326.city.domain.City;
-import travel_20190326.city.service.CityService;
-import travel_20190326.common.business.application.ServiceSupplier;
-import travel_20190326.common.business.application.StorageType;
-import travel_20190326.common.business.exceptions.CannotDeleteCityException;
-import travel_20190326.common.business.search.SortOrderDirection;
-import travel_20190326.common.solution.search.Paginator;
-import travel_20190326.country.domain.BaseCountry;
-import travel_20190326.country.service.CountryService;
-import travel_20190326.order.domain.Order;
-import travel_20190326.order.search.OrderSearchCondition;
-import travel_20190326.order.service.OrderService;
-import travel_20190326.reporting.ExportData;
-import travel_20190326.reporting.impl.ExportDataToTxtFile;
-import travel_20190326.storage.loadinitialdata.StorageInitor;
-import travel_20190326.storage.loadinitialdata.impl.MultiThreadReader;
-import travel_20190326.user.domain.SimpleUser;
-import travel_20190326.user.domain.User;
-import travel_20190326.user.domain.UserType;
-import travel_20190326.user.domain.VipUser;
-import travel_20190326.user.service.UserService;
+import travel_20190327.city.domain.City;
+import travel_20190327.city.service.CityService;
+import travel_20190327.common.business.application.ServiceSupplier;
+import travel_20190327.common.business.application.StorageType;
+import travel_20190327.common.business.exceptions.CannotDeleteCityException;
+import travel_20190327.common.business.search.SortOrderDirection;
+import travel_20190327.common.solution.search.Paginator;
+import travel_20190327.country.domain.BaseCountry;
+import travel_20190327.country.service.CountryService;
+import travel_20190327.order.domain.Order;
+import travel_20190327.order.search.OrderSearchCondition;
+import travel_20190327.order.service.OrderService;
+import travel_20190327.reporting.ExportData;
+import travel_20190327.reporting.impl.ExportDataToTxtFile;
+import travel_20190327.storage.loadinitialdata.StorageInitor;
+import travel_20190327.storage.loadinitialdata.impl.MultiThreadReader;
+import travel_20190327.user.domain.SimpleUser;
+import travel_20190327.user.domain.User;
+import travel_20190327.user.domain.UserType;
+import travel_20190327.user.domain.VipUser;
+import travel_20190327.user.service.UserService;
 
 import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-import static travel_20190326.storage.Storage.cities;
-import static travel_20190326.storage.Storage.orders;
+import static travel_20190327.storage.Storage.cities;
+import static travel_20190327.storage.Storage.orders;
 
 
 public class TravelDemo {
@@ -43,6 +45,12 @@ public class TravelDemo {
 
         MultiThreadReader reader = new MultiThreadReader();
         reader.getDataFromFiles("resources/countries_part1.xml", "resources/countries_part2.xml");
+
+        /*List<City> citiesList = new ArrayList<>();
+        citiesList.add(new City("SPb"));
+        citiesList.add(new City("Moscow"));
+        citiesList.add(new City("Omsk"));
+        cityService.add(citiesList);*/
 
         System.out.println("ok");
 
