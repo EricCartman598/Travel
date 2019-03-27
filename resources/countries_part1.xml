@@ -1,0 +1,33 @@
+<init-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		   xsi:noNamespaceSchemaLocation="countries.xsd">
+<countries>
+		<country discriminator="HOT">
+			<name>USA</name>
+			<language>Eng</language>
+			<cities>
+				<city>
+					<name>Vashington</name>
+					<population>36574</population>
+					<isCapital>true</isCapital>
+				</city>
+				<city>
+					<name>New-York</name>
+					<population>2588</population>
+					<isCapital>false</isCapital>
+				</city>
+				<city>
+					<name>Los-Angeles</name>
+					<population>447433</population>
+					<isCapital>false</isCapital>
+				</city>
+				<city>
+					<name>Chicago</name>
+					<population>23456</population>
+					<isCapital>false</isCapital>
+				</city>
+			</cities>
+			<hotestMonth>July</hotestMonth>
+			<averageTemperature>39.6</averageTemperature>
+		</country>		
+	</countries>
+</init-data>

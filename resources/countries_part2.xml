@@ -1,0 +1,56 @@
+<init-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		   xsi:noNamespaceSchemaLocation="countries.xsd">
+<countries>		
+		<country discriminator="COLD">
+			<name>Ukraine</name>
+			<language>UA</language>
+			<cities>
+				<city>
+					<name>Livov</name>
+					<population>543</population>
+					<isCapital>false</isCapital>
+				</city>
+				<city>
+					<name>Kiev</name>
+					<population>788</population>
+					<isCapital>true</isCapital>
+				</city>
+				<city>
+					<name>Odessa</name>
+					<population>111</population>
+					<isCapital>false</isCapital>
+				</city>
+			</cities>
+			<telephoneCode>+380</telephoneCode>
+			<isPolarNight>false</isPolarNight>
+		</country>
+		<country discriminator="COLD">
+			<name>Russia</name>
+			<language>Rus</language>
+			<cities>
+				<city>
+					<name>Moscow</name>
+					<population>500</population>
+					<isCapital>true</isCapital>
+				</city>
+				<city>
+					<name>Novosibirsk</name>
+					<population>400</population>
+					<isCapital>false</isCapital>
+				</city>
+				<city>
+					<name>Omsk</name>
+					<population>300</population>
+					<isCapital>false</isCapital>
+				</city>
+				<city>
+					<name>Spb</name>
+					<population>200</population>
+					<isCapital>false</isCapital>
+				</city>
+			</cities>
+			<telephoneCode>+7</telephoneCode>
+			<isPolarNight>true</isPolarNight>
+		</country>
+	</countries>
+</init-data>
