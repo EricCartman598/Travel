@@ -15,6 +15,7 @@ import travel_20190327.order.search.OrderSearchCondition;
 import travel_20190327.order.service.OrderService;
 import travel_20190327.reporting.ExportData;
 import travel_20190327.reporting.impl.ExportDataToTxtFile;
+import travel_20190327.storage.loadinitialdata.ImportDataFromFile;
 import travel_20190327.storage.loadinitialdata.StorageInitor;
 import travel_20190327.storage.loadinitialdata.impl.MultiThreadReader;
 import travel_20190327.user.domain.SimpleUser;
@@ -43,21 +44,15 @@ public class TravelDemo {
 
     public static void main(String[] args) {
 
-        MultiThreadReader reader = new MultiThreadReader();
-        reader.getDataFromFiles("resources/countries_part1.xml", "resources/countries_part2.xml");
-
-        /*List<City> citiesList = new ArrayList<>();
-        citiesList.add(new City("SPb"));
-        citiesList.add(new City("Moscow"));
-        citiesList.add(new City("Omsk"));
-        cityService.add(citiesList);*/
-
-        System.out.println("ok");
+        //MultiThreadReader reader = new MultiThreadReader();
+        //reader.getDataFromFiles("resources/countries_part1.xml", "resources/countries_part2.xml");
 
         StorageInitor storageInitor = new StorageInitor(true);
         try {
-            storageInitor.initCountryStorageFromFile(countryService,
-                    "resources/countries.xml", StorageInitor.DataSourceType.XML_FILE);
+            ImportDataFromFile<List<BaseCountry>> importer = storageInitor.getCountryImporter(StorageInitor.DataSourceType.XML_FILE);
+            storageInitor.initCountryStorageFromFile(importer, countryService, "resources/countries_part1.xml", "resources/countries_part2.xml");
+            //storageInitor.initCountryStorageFromFile(importer, countryService,
+            //        "resources/countries.xml");
         } catch (Exception e) {
             e.printStackTrace();
         }

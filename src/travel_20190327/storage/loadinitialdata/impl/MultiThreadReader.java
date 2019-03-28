@@ -11,9 +11,9 @@ public class MultiThreadReader {
         List<BaseCountry> dataFromFiles = new ArrayList<>();
         List<ThreadInitData> readThreadsList = new ArrayList<>();
 
-        for (int i = 0; i < files.length; i++) {
+       /* for (int i = 0; i < files.length; i++) {
             readThreadsList.add(new ThreadInitData(files[i]));
-        }
+        }*/
 
         for (int i = 0; i < readThreadsList.size(); i++) {
             try {
