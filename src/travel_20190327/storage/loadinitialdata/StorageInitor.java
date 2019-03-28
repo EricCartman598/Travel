@@ -9,6 +9,7 @@ import travel_20190327.storage.loadinitialdata.impl.ThreadInitData;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class StorageInitor {
 
@@ -60,7 +61,7 @@ public class StorageInitor {
     private List<BaseCountry> multithreadGetDataFromFiles(ImportDataFromFile<List<BaseCountry>> importer, String... files) {
 
         List<BaseCountry> dataFromFiles = new ArrayList<>();
-        List<ThreadInitData> readThreadsList = new ArrayList<>();
+        List<ThreadInitData<List<BaseCountry>>> readThreadsList = new ArrayList<>();
 
         for (int i = 0; i < files.length; i++) {
             readThreadsList.add(new ThreadInitData(files[i], importer));
@@ -69,6 +70,7 @@ public class StorageInitor {
         for (int i = 0; i < readThreadsList.size(); i++) {
             try {
                 readThreadsList.get(i).getThread().join();
+                List<BaseCountry> lbc = readThreadsList.get(i).getCountriesList();
                 dataFromFiles.addAll(readThreadsList.get(i).getCountriesList());
             } catch (InterruptedException e) {
                 e.printStackTrace();

@@ -17,7 +17,6 @@ import travel_20190327.reporting.ExportData;
 import travel_20190327.reporting.impl.ExportDataToTxtFile;
 import travel_20190327.storage.loadinitialdata.ImportDataFromFile;
 import travel_20190327.storage.loadinitialdata.StorageInitor;
-import travel_20190327.storage.loadinitialdata.impl.MultiThreadReader;
 import travel_20190327.user.domain.SimpleUser;
 import travel_20190327.user.domain.User;
 import travel_20190327.user.domain.UserType;

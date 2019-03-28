@@ -6,10 +6,10 @@ import travel_20190327.storage.loadinitialdata.ImportDataFromFile;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ThreadInitData<T extends List<BaseCountry>> implements Runnable {
+public class ThreadInitData<T> implements Runnable {
 
     private String filePath;
-    private List<BaseCountry> countriesList = new ArrayList<>();
+    private T countriesList;// = new ArrayList<>();
     private Thread thread;
     private ImportDataFromFile<T> importer;
 
@@ -29,7 +29,7 @@ public class ThreadInitData<T extends List<BaseCountry>> implements Runnable {
         }
     }
 
-    public List<BaseCountry> getCountriesList() {
+    public T getCountriesList() {
         return countriesList;
     }
 
