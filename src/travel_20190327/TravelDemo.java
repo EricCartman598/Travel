@@ -2,6 +2,8 @@ package travel_20190327;
 
 
 import travel_20190327.city.domain.City;
+import travel_20190327.city.repo.CityRepo;
+import travel_20190327.city.repo.impl.CityMemoryListRepo;
 import travel_20190327.city.service.CityService;
 import travel_20190327.common.business.application.ServiceSupplier;
 import travel_20190327.common.business.application.StorageType;
@@ -113,6 +115,15 @@ public class TravelDemo {
         cityService.printAll(new Paginator(3, 1));
         System.out.println("---------------------------\r\n");
         orderService.printAll(new Paginator(3, 1));
+
+
+        System.out.println(cityService.findByName("Livov").getName());
+        System.out.println(cityService.findById(2L).getName());
+
+        //CityRepo repo = new CityMemoryListRepo();
+        City foundCity = cityService.findByParam(city -> city.getName().equals("Kiev"), "Kiev");
+
+        System.out.println(foundCity.getName());
     }
 
     private static void createNewCity(String cityName) {
@@ -177,10 +188,10 @@ public class TravelDemo {
         orderingCountry.add(new BaseCountry(countryName));
         orderingCountry.get(0).setId(countryService.findByName(orderingCountry.get(0).getName()).getId());
 
-        for(String s : citiesNames) {
+        for (String s : citiesNames) {
             orderingCountry.get(0).getCities().add(new City(s));
         }
-        for(City city : orderingCountry.get(0).getCities()) {
+        for (City city : orderingCountry.get(0).getCities()) {
             city.setId(cityService.findByName(city.getName()).getId());
         }
 

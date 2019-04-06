@@ -110,11 +110,8 @@ public class TravelDemo {
         //orderService.printAll(null);
 
 
-        String s1 = "qwerty";
-        String s2 = "qwerty";
-
-        System.out.println(s1.equals(s2));
-        System.out.println(s1 == s2);
+        System.out.println(cityService.findByName("Livov").getName());
+        System.out.println(cityService.findById(2L).getName());
 
     }
 

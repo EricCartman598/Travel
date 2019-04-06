@@ -19,6 +19,7 @@ import travel_20190327.order.repo.OrderRepo;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Predicate;
 
 import static travel_20190327.storage.Storage.countries;
 import static travel_20190327.storage.Storage.orders;
@@ -47,6 +48,12 @@ public class CityMemoryListService implements CityService {
 
         return null;
     }
+
+    @Override
+    public <P> City findByParam(Predicate<City> param, P targetParam) {
+        return cityRepo.findByParam(param, targetParam);
+    }
+
 
     @Override
     public List<City> findByCondition(CitySearchCondition citySearchCondition) {

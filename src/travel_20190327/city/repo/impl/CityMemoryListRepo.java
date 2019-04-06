@@ -7,6 +7,7 @@ import travel_20190327.common.solution.search.Paginator;
 import travel_20190327.storage.SequenceGenerator;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 import static travel_20190327.storage.Storage.cities;
 
@@ -22,8 +23,19 @@ public class CityMemoryListRepo implements CityRepo {
         return null;
     }
 
+
     @Override
     public List<City> findByCondition(CitySearchCondition citySearchCondition) {
+        return null;
+    }
+
+
+    @Override
+    public <P> City findByParam(Predicate<City> param, P targetParam) {
+        for (City city : cities) {
+            if(param.test(city))
+                return city;
+        }
         return null;
     }
 

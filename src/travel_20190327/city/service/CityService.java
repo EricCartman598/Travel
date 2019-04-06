@@ -7,10 +7,13 @@ import travel_20190327.common.business.exceptions.NeedToCancelOrderException;
 import travel_20190327.common.solution.service.BaseService;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 public interface CityService extends BaseService<City, Long> {
 
     City findByName(String name);
+
+    <P> City findByParam(Predicate<City> param, P targetParam);
 
     List<City> findByCondition(CitySearchCondition searchCondition);
 

@@ -27,6 +27,8 @@ public class CityMemoryListRepo implements CityRepo {
         return null;
     }
 
+
+
     @Override
     public void add(City data) {
         data.setId(SequenceGenerator.generateSequence());
