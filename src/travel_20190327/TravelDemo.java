@@ -176,7 +176,7 @@ public class TravelDemo {
         /*
         switch(countryService.findByName(countryName).getDiscriminator()) {
             case HOT:
-                orderingCountry.add(new HotCountry(countryName));
+                orderingCountry.add(new HotCountryDto(countryName));
                 break;
             case COLD:
                 orderingCountry.add(new ColdCountry(countryName));

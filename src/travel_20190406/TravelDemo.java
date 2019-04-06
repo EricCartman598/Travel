@@ -1,34 +1,35 @@
-package main.java.travel_20190322;
+package travel_20190406;
 
 
-import main.java.travel_20190322.city.domain.City;
-import main.java.travel_20190322.city.service.CityService;
-import main.java.travel_20190322.common.business.application.ServiceSupplier;
-import main.java.travel_20190322.common.business.application.StorageType;
-import main.java.travel_20190322.common.business.exceptions.CannotDeleteCityException;
-import main.java.travel_20190322.common.business.search.SortOrderDirection;
-import main.java.travel_20190322.common.solution.search.Paginator;
-import main.java.travel_20190322.country.domain.BaseCountry;
-import main.java.travel_20190322.country.service.CountryService;
-import main.java.travel_20190322.order.domain.Order;
-import main.java.travel_20190322.order.search.OrderSearchCondition;
-import main.java.travel_20190322.order.service.OrderService;
-import main.java.travel_20190322.reporting.ExportData;
-import main.java.travel_20190322.reporting.impl.ExportDataToTxtFile;
-import main.java.travel_20190322.storage.loadinitialdata.StorageInitor;
-import main.java.travel_20190322.user.domain.SimpleUser;
-import main.java.travel_20190322.user.domain.User;
-import main.java.travel_20190322.user.domain.UserType;
-import main.java.travel_20190322.user.domain.VipUser;
-import main.java.travel_20190322.user.service.UserService;
+import travel_20190406.city.domain.City;
+import travel_20190406.city.service.CityService;
+import travel_20190406.common.business.application.ServiceSupplier;
+import travel_20190406.common.business.application.StorageType;
+import travel_20190406.common.business.exceptions.CannotDeleteCityException;
+import travel_20190406.common.business.search.SortOrderDirection;
+import travel_20190406.common.solution.search.Paginator;
+import travel_20190406.country.domain.BaseCountry;
+import travel_20190406.country.service.CountryService;
+import travel_20190406.order.domain.Order;
+import travel_20190406.order.search.OrderSearchCondition;
+import travel_20190406.order.service.OrderService;
+import travel_20190406.reporting.ExportData;
+import travel_20190406.reporting.impl.ExportDataToTxtFile;
+import travel_20190406.storage.loadinitialdata.ImportDataFromFile;
+import travel_20190406.storage.loadinitialdata.StorageInitor;
+import travel_20190406.user.domain.SimpleUser;
+import travel_20190406.user.domain.User;
+import travel_20190406.user.domain.UserType;
+import travel_20190406.user.domain.VipUser;
+import travel_20190406.user.service.UserService;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static main.java.travel_20190322.storage.Storage.cities;
-import static main.java.travel_20190322.storage.Storage.orders;
+import static travel_20190406.storage.Storage.cities;
+import static travel_20190406.storage.Storage.orders;
 
 
 public class TravelDemo {
@@ -42,10 +43,15 @@ public class TravelDemo {
 
     public static void main(String[] args) {
 
-        StorageInitor storageInitor = new StorageInitor();
+        //MultiThreadReader reader = new MultiThreadReader();
+        //reader.getDataFromFiles("resources/countries_part1.xml", "resources/countries_part2.xml");
+
+        StorageInitor storageInitor = new StorageInitor(true);
         try {
-            storageInitor.initCountryStorageFromFile(countryService,
-                    "resources/countries.xml", StorageInitor.DataSourceType.XML_FILE_JAXB);
+            ImportDataFromFile<List<BaseCountry>> importer = storageInitor.getCountryImporter(StorageInitor.DataSourceType.XML_FILE);
+            storageInitor.initCountryStorageFromFile(importer, countryService, "resources/countries_part1.xml", "resources/countries_part2.xml");
+            //storageInitor.initCountryStorageFromFile(importer, countryService,
+            //        "resources/countries.xml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -107,12 +113,15 @@ public class TravelDemo {
         cityService.printAll(new Paginator(3, 1));
         System.out.println("---------------------------\r\n");
         orderService.printAll(new Paginator(3, 1));
-        //orderService.printAll(null);
 
 
         System.out.println(cityService.findByName("Livov").getName());
         System.out.println(cityService.findById(2L).getName());
 
+        //CityRepo repo = new CityMemoryListRepo();
+        City foundCity = cityService.findByParam(city -> city.getName().equals("Kiev"), "Kiev");
+
+        System.out.println(foundCity.getName());
     }
 
     private static void createNewCity(String cityName) {
@@ -177,10 +186,10 @@ public class TravelDemo {
         orderingCountry.add(new BaseCountry(countryName));
         orderingCountry.get(0).setId(countryService.findByName(orderingCountry.get(0).getName()).getId());
 
-        for(String s : citiesNames) {
+        for (String s : citiesNames) {
             orderingCountry.get(0).getCities().add(new City(s));
         }
-        for(City city : orderingCountry.get(0).getCities()) {
+        for (City city : orderingCountry.get(0).getCities()) {
             city.setId(cityService.findByName(city.getName()).getId());
         }
 
