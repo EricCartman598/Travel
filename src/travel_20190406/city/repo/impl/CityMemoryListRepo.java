@@ -7,7 +7,9 @@ import travel_20190406.common.solution.search.Paginator;
 import travel_20190406.storage.SequenceGenerator;
 
 import java.util.List;
+import java.util.function.BinaryOperator;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import static travel_20190406.storage.Storage.cities;
 
@@ -47,12 +49,13 @@ public class CityMemoryListRepo implements CityRepo {
 
     @Override
     public City findById(Long id) {
-        for (City city : cities) {
+        return (cities.stream().filter(city -> city.getId().equals(id)).collect(Collectors.toList())).get(0);
+        /*for (City city : cities) {
             if (city.getId().equals(id))
                 return city;
         }
 
-        return null;
+        return null;*/
     }
 
     @Override
@@ -62,8 +65,9 @@ public class CityMemoryListRepo implements CityRepo {
 
     @Override
     public void printAll(Paginator paginator) {
-        for (City city : cities)
-            System.out.println(city.getName());
+        cities.stream().spliterator().forEachRemaining(city -> System.out.println(city.getName()));
+        //for (City city : cities)
+        //    System.out.println(city.getName());
     }
 
     @Override
